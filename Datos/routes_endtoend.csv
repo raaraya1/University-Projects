@@ -1,0 +1,17 @@
+Start;End;EndToEndCostPerLiter
+Plant001;Customer001;9
+Plant002;Customer001;7
+Plant002;Customer002;9
+Plant003;Customer002;5
+Plant004;Customer002;6
+Plant001;Customer002;7
+Plant004;Customer003;3
+Plant001;Customer003;10
+Plant002;Customer003;7
+Plant003;Customer003;6
+Plant001;Customer004;8
+Plant001;Customer005;3
+Plant002;Customer006;9
+Plant001;Customer006;10
+Plant001;Customer007;8
+Plant002;Customer007;2
