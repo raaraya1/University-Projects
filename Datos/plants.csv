@@ -1,6 +1,0 @@
-PlantID;PlantLocationLatitude;PlantLocationLongitude;PlantProdCapacityLiters;PlantRailTransportationCapacityLiters;PlantRoadTransportationCapacityLiters
-Plant001;6.795.458.019;3.095.143.418;760;324;362
-Plant002;1.838.170.216;-2.386.330.645;906;76;201
-Plant003;6.177.910.668;-2.966.737.339;691;382;345
-Plant004;7.866.031.164;8.144.016.527;165;294;445
-Plant005;5.305.397.278;-9.524.078.678;1000;292;499
