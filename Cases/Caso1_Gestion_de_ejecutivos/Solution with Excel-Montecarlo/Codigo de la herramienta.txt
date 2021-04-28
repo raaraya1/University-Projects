@@ -1,0 +1,723 @@
+Sub Resolver()
+
+Dim databook As Workbook
+Dim datasheet As Worksheet
+Dim resultsheet As Worksheet
+Dim modelosheet As Worksheet
+
+Set databook = ThisWorkbook
+Set datasheet = databook.Worksheets("Reporte")
+Set resultsheet = databook.Worksheets("Datos")
+
+
+'Declaracion de variables
+dia_semana = 0
+demanda_licitaciones = 0
+demanda_creditos = 0
+demanda_otros = 0
+ejecutivos_necesarios_licencia = 0
+ejecutivos_necesarios_credito = 0
+ejecutivos_necesarios_otros = 0
+tiempo_promedio_cola_licencia = 0
+tiempo_promedio_cola_credito = 0
+tiempo_promedio_cola_otros = 0
+persona_cola_licencia = 0
+persona_cola_credito = 0
+persona_cola_otros = 0
+instantaneo_licencia = 0
+instantanneo_credito = 0
+instantaneo_otros = 0
+total_consulta_licencia = 0
+total_consulta_credito = 0
+total_consulta_otros = 0
+
+
+'Extraccion de datos
+dia_semana = datasheet.Cells(11, 14)
+demanda_licitaciones = datasheet.Cells(11, 5)
+demanda_creditos = datasheet.Cells(11, 8)
+demanda_otros = datasheet.Cells(11, 11)
+
+'Ejecutar segun condiciones
+If dia_semana = "Lunes" Then
+    'Procedimiento para licencia
+    'Hacer la hoja visible
+    Sheets("lunes_licencia").Visible = True
+    Set modelosheet = databook.Worksheets("lunes_licencia")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_licitaciones
+    
+    'Resolver modelo
+    Sheets("lunes_licencia").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+        
+    'Extraer resultados
+    ejecutivos_necesarios_licencia = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_licencia = modelosheet.Cells(2, 21)
+    persona_cola_licencia = modelosheet.Cells(2, 20)
+    instantaneo_licencia = modelosheet.Cells(2, 23)
+    total_consulta_licencia = modelosheet.Cells(2, 22)
+            
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(45, 2) = ejecutivos_necesarios_licencia
+    resultsheet.Cells(38, 2) = total_consulta_licencia
+    resultsheet.Cells(38, 3) = instantaneo_licencia
+    resultsheet.Cells(52, 2) = tiempo_promedio_cola_licencia
+    resultsheet.Cells(58, 2) = persona_cola_licencia
+    Sheets("Reporte").Select
+        
+    'Procedimiento para credito
+    'Hacer la hoja visible
+    Sheets("lunes_credito").Visible = True
+    Set modelosheet = databook.Worksheets("lunes_credito")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_creditos
+    
+    'Resolver modelo
+    Sheets("lunes_credito").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+        
+    'Extraer resultados
+    ejecutivos_necesarios_credito = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_credito = modelosheet.Cells(2, 21)
+    persona_cola_credito = modelosheet.Cells(2, 20)
+    instantaneo_credito = modelosheet.Cells(2, 23)
+    total_consulta_credito = modelosheet.Cells(2, 22)
+    
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(46, 2) = ejecutivos_necesarios_credito
+    resultsheet.Cells(39, 2) = total_consulta_credito
+    resultsheet.Cells(39, 3) = instantaneo_credito
+    resultsheet.Cells(53, 2) = tiempo_promedio_cola_credito
+    resultsheet.Cells(59, 2) = persona_cola_credito
+    Sheets("Reporte").Select
+        
+    'Procedimiento para otros
+    'Hacer la hoja visible
+    Sheets("lunes_otros").Visible = True
+    Set modelosheet = databook.Worksheets("lunes_otros")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_otros
+    
+    'Resolver modelo
+    Sheets("lunes_otros").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+        
+    'Extraer resultados
+    ejecutivos_necesarios_otros = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_otros = modelosheet.Cells(2, 21)
+    persona_cola_otros = modelosheet.Cells(2, 20)
+    instantaneo_otros = modelosheet.Cells(2, 23)
+    total_consulta_otros = modelosheet.Cells(2, 22)
+    
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(47, 2) = ejecutivos_necesarios_otros
+    resultsheet.Cells(40, 2) = total_consulta_otros
+    resultsheet.Cells(40, 3) = instantaneo_otros
+    resultsheet.Cells(54, 2) = tiempo_promedio_cola_otros
+    resultsheet.Cells(60, 2) = persona_cola_otros
+    Sheets("Reporte").Select
+    
+ElseIf dia_semana = "Martes" Then
+    'Procedimiento para licencia
+    'Hacer la hoja visible
+    Sheets("martes_licencia").Visible = True
+    Set modelosheet = databook.Worksheets("martes_licencia")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_licitaciones
+    
+    'Resolver modelo
+    Sheets("martes_licencia").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_licencia = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_licencia = modelosheet.Cells(2, 21)
+    persona_cola_licencia = modelosheet.Cells(2, 20)
+    instantaneo_licencia = modelosheet.Cells(2, 23)
+    total_consulta_licencia = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(45, 2) = ejecutivos_necesarios_licencia
+    resultsheet.Cells(38, 2) = total_consulta_licencia
+    resultsheet.Cells(38, 3) = instantaneo_licencia
+    resultsheet.Cells(52, 2) = tiempo_promedio_cola_licencia
+    resultsheet.Cells(58, 2) = persona_cola_licencia
+    Sheets("Reporte").Select
+        
+    'Procedimiento para credito
+    'Hacer la hoja visible
+    Sheets("martes_credito").Visible = True
+    Set modelosheet = databook.Worksheets("martes_credito")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_creditos
+    
+    'Resolver modelo
+    Sheets("martes_credito").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+        
+    'Extraer resultados
+    ejecutivos_necesarios_credito = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_credito = modelosheet.Cells(2, 21)
+    persona_cola_credito = modelosheet.Cells(2, 20)
+    instantaneo_credito = modelosheet.Cells(2, 23)
+    total_consulta_credito = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(46, 2) = ejecutivos_necesarios_credito
+    resultsheet.Cells(39, 2) = total_consulta_credito
+    resultsheet.Cells(39, 3) = instantaneo_credito
+    resultsheet.Cells(53, 2) = tiempo_promedio_cola_credito
+    resultsheet.Cells(59, 2) = persona_cola_credito
+    Sheets("Reporte").Select
+        
+    'Procedimiento para otros
+    'Hacer la hoja visible
+    Sheets("martes_otros").Visible = True
+    Set modelosheet = databook.Worksheets("martes_otros")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_otros
+    
+    'Resolver modelo
+    Sheets("martes_otros").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_otros = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_otros = modelosheet.Cells(2, 21)
+    persona_cola_otros = modelosheet.Cells(2, 20)
+    instantaneo_otros = modelosheet.Cells(2, 23)
+    total_consulta_otros = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(47, 2) = ejecutivos_necesarios_otros
+    resultsheet.Cells(40, 2) = total_consulta_otros
+    resultsheet.Cells(40, 3) = instantaneo_otros
+    resultsheet.Cells(54, 2) = tiempo_promedio_cola_otros
+    resultsheet.Cells(60, 2) = persona_cola_otros
+    Sheets("Reporte").Select
+
+
+ElseIf dia_semana = "Miercoles" Then
+    'Procedimiento para licencia
+    'Hacer la hoja visible
+    Sheets("miercoles_licencia").Visible = True
+    Set modelosheet = databook.Worksheets("miercoles_licencia")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_licitaciones
+    
+    'Resolver modelo
+    Sheets("miercoles_licencia").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_licencia = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_licencia = modelosheet.Cells(2, 21)
+    persona_cola_licencia = modelosheet.Cells(2, 20)
+    instantaneo_licencia = modelosheet.Cells(2, 23)
+    total_consulta_licencia = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(45, 2) = ejecutivos_necesarios_licencia
+    resultsheet.Cells(38, 2) = total_consulta_licencia
+    resultsheet.Cells(38, 3) = instantaneo_licencia
+    resultsheet.Cells(52, 2) = tiempo_promedio_cola_licencia
+    resultsheet.Cells(58, 2) = persona_cola_licencia
+    Sheets("Reporte").Select
+        
+    'Procedimiento para credito
+    'Hacer la hoja visible
+    Sheets("miercoles_credito").Visible = True
+    Set modelosheet = databook.Worksheets("miercoles_credito")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_creditos
+    
+    'Resolver modelo
+    Sheets("miercoles_credito").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_credito = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_credito = modelosheet.Cells(2, 21)
+    persona_cola_credito = modelosheet.Cells(2, 20)
+    instantaneo_credito = modelosheet.Cells(2, 23)
+    total_consulta_credito = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(46, 2) = ejecutivos_necesarios_credito
+    resultsheet.Cells(39, 2) = total_consulta_credito
+    resultsheet.Cells(39, 3) = instantaneo_credito
+    resultsheet.Cells(53, 2) = tiempo_promedio_cola_credito
+    resultsheet.Cells(59, 2) = persona_cola_credito
+    Sheets("Reporte").Select
+        
+    'Procedimiento para otros
+    'Hacer la hoja visible
+    Sheets("miercoles_otros").Visible = True
+    Set modelosheet = databook.Worksheets("miercoles_otros")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_otros
+    
+    'Resolver modelo
+    Sheets("miercoles_otros").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_otros = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_otros = modelosheet.Cells(2, 21)
+    persona_cola_otros = modelosheet.Cells(2, 20)
+    instantaneo_otros = modelosheet.Cells(2, 23)
+    total_consulta_otros = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(47, 2) = ejecutivos_necesarios_otros
+    resultsheet.Cells(40, 2) = total_consulta_otros
+    resultsheet.Cells(40, 3) = instantaneo_otros
+    resultsheet.Cells(54, 2) = tiempo_promedio_cola_otros
+    resultsheet.Cells(60, 2) = persona_cola_otros
+    Sheets("Reporte").Select
+
+ElseIf dia_semana = "Jueves" Then
+    'Procedimiento para licencia
+    'Hacer la hoja visible
+    Sheets("jueves_licencia").Visible = True
+    Set modelosheet = databook.Worksheets("jueves_licencia")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_licitaciones
+    
+    'Resolver modelo
+    Sheets("jueves_licencia").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_licencia = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_licencia = modelosheet.Cells(2, 21)
+    persona_cola_licencia = modelosheet.Cells(2, 20)
+    instantaneo_licencia = modelosheet.Cells(2, 23)
+    total_consulta_licencia = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(45, 2) = ejecutivos_necesarios_licencia
+    resultsheet.Cells(38, 2) = total_consulta_licencia
+    resultsheet.Cells(38, 3) = instantaneo_licencia
+    resultsheet.Cells(52, 2) = tiempo_promedio_cola_licencia
+    resultsheet.Cells(58, 2) = persona_cola_licencia
+    Sheets("Reporte").Select
+        
+    'Procedimiento para credito
+    'Hacer la hoja visible
+    Sheets("jueves_credito").Visible = True
+    Set modelosheet = databook.Worksheets("jueves_credito")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_creditos
+    
+    'Resolver modelo
+    Sheets("jueves_credito").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_credito = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_credito = modelosheet.Cells(2, 21)
+    persona_cola_credito = modelosheet.Cells(2, 20)
+    instantaneo_credito = modelosheet.Cells(2, 23)
+    total_consulta_credito = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(46, 2) = ejecutivos_necesarios_credito
+    resultsheet.Cells(39, 2) = total_consulta_credito
+    resultsheet.Cells(39, 3) = instantaneo_credito
+    resultsheet.Cells(53, 2) = tiempo_promedio_cola_credito
+    resultsheet.Cells(59, 2) = persona_cola_credito
+    Sheets("Reporte").Select
+        
+    'Procedimiento para otros
+    'Hacer la hoja visible
+    Sheets("jueves_otros").Visible = True
+    Set modelosheet = databook.Worksheets("jueves_otros")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_otros
+    
+    'Resolver modelo
+    Sheets("jueves_otros").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_otros = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_otros = modelosheet.Cells(2, 21)
+    persona_cola_otros = modelosheet.Cells(2, 20)
+    instantaneo_otros = modelosheet.Cells(2, 23)
+    total_consulta_otros = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(47, 2) = ejecutivos_necesarios_otros
+    resultsheet.Cells(40, 2) = total_consulta_otros
+    resultsheet.Cells(40, 3) = instantaneo_otros
+    resultsheet.Cells(54, 2) = tiempo_promedio_cola_otros
+    resultsheet.Cells(60, 2) = persona_cola_otros
+    Sheets("Reporte").Select
+
+ElseIf dia_semana = "Viernes" Then
+    'Procedimiento para licencia
+    'Hacer la hoja visible
+    Sheets("viernes_licencia").Visible = True
+    Set modelosheet = databook.Worksheets("viernes_licencia")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_licitaciones
+    
+    'Resolver modelo
+    Sheets("viernes_licencia").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_licencia = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_licencia = modelosheet.Cells(2, 21)
+    persona_cola_licencia = modelosheet.Cells(2, 20)
+    instantaneo_licencia = modelosheet.Cells(2, 23)
+    total_consulta_licencia = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(45, 2) = ejecutivos_necesarios_licencia
+    resultsheet.Cells(38, 2) = total_consulta_licencia
+    resultsheet.Cells(38, 3) = instantaneo_licencia
+    resultsheet.Cells(52, 2) = tiempo_promedio_cola_licencia
+    resultsheet.Cells(58, 2) = persona_cola_licencia
+    Sheets("Reporte").Select
+        
+    'Procedimiento para credito
+    'Hacer la hoja visible
+    Sheets("viernes_credito").Visible = True
+    Set modelosheet = databook.Worksheets("viernes_credito")
+    
+    'Ajustar parametros
+    modelosheet.Cells(27, 3) = demanda_creditos
+    
+    'Resolver modelo
+    Sheets("viernes_credito").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_credito = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_credito = modelosheet.Cells(2, 21)
+    persona_cola_credito = modelosheet.Cells(2, 20)
+    instantaneo_credito = modelosheet.Cells(2, 23)
+    total_consulta_credito = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(46, 2) = ejecutivos_necesarios_credito
+    resultsheet.Cells(39, 2) = total_consulta_credito
+    resultsheet.Cells(39, 3) = instantaneo_credito
+    resultsheet.Cells(53, 2) = tiempo_promedio_cola_credito
+    resultsheet.Cells(59, 2) = persona_cola_credito
+    Sheets("Reporte").Select
+        
+    'Procedimiento para otros
+    'Hacer la hoja visible
+    Sheets("viernes_otros").Visible = True
+    Set modelosheet = databook.Worksheets("viernes_otros")
+    
+    'Ajustar parametros
+    modelosheet.Cells(32, 3) = demanda_otros
+    
+    'Resolver modelo
+    Sheets("viernes_otros").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_otros = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_otros = modelosheet.Cells(2, 21)
+    persona_cola_otros = modelosheet.Cells(2, 20)
+    instantaneo_otros = modelosheet.Cells(2, 23)
+    total_consulta_otros = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(47, 2) = ejecutivos_necesarios_otros
+    resultsheet.Cells(40, 2) = total_consulta_otros
+    resultsheet.Cells(40, 3) = instantaneo_otros
+    resultsheet.Cells(54, 2) = tiempo_promedio_cola_otros
+    resultsheet.Cells(60, 2) = persona_cola_otros
+    Sheets("Reporte").Select
+
+ElseIf dia_semana = "" Then
+    'Procedimiento para licencia
+    'Hacer la hoja visible
+    Sheets("licencia").Visible = True
+    Set modelosheet = databook.Worksheets("licencia")
+    
+    'Ajustar parametros
+    modelosheet.Cells(76, 3) = demanda_licitaciones
+    
+    'Resolver modelo
+    Sheets("licencia").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_licencia = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_licencia = modelosheet.Cells(2, 21)
+    persona_cola_licencia = modelosheet.Cells(2, 20)
+    instantaneo_licencia = modelosheet.Cells(2, 23)
+    total_consulta_licencia = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(45, 2) = ejecutivos_necesarios_licencia
+    resultsheet.Cells(38, 2) = total_consulta_licencia
+    resultsheet.Cells(38, 3) = instantaneo_licencia
+    resultsheet.Cells(52, 2) = tiempo_promedio_cola_licencia
+    resultsheet.Cells(58, 2) = persona_cola_licencia
+    Sheets("Reporte").Select
+        
+    'Procedimiento para credito
+    'Hacer la hoja visible
+    Sheets("credito").Visible = True
+    Set modelosheet = databook.Worksheets("credito")
+    
+    'Ajustar parametros
+    modelosheet.Cells(54, 3) = demanda_creditos
+    
+    'Resolver modelo
+    Sheets("credito").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+        
+    'Extraer resultados
+    ejecutivos_necesarios_credito = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_credito = modelosheet.Cells(2, 21)
+    persona_cola_credito = modelosheet.Cells(2, 20)
+    instantaneo_credito = modelosheet.Cells(2, 23)
+    total_consulta_credito = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(46, 2) = ejecutivos_necesarios_credito
+    resultsheet.Cells(39, 2) = total_consulta_credito
+    resultsheet.Cells(39, 3) = instantaneo_credito
+    resultsheet.Cells(53, 2) = tiempo_promedio_cola_credito
+    resultsheet.Cells(59, 2) = persona_cola_credito
+    Sheets("Reporte").Select
+        
+    'Procedimiento para otros
+    'Hacer la hoja visible
+    Sheets("otros").Visible = True
+    Set modelosheet = databook.Worksheets("otros")
+    
+    'Ajustar parametros
+    modelosheet.Cells(44, 3) = demanda_otros
+    
+    'Resolver modelo
+    Sheets("otros").Select
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverOk SetCell:="$S$2", MaxMinVal:=2, ValueOf:=0, ByChange:="$R$4", Engine:=3 _
+        , EngineDesc:="Evolutionary"
+    SolverSolve
+    
+    'Extraer resultados
+    ejecutivos_necesarios_otros = modelosheet.Cells(4, 18)
+    tiempo_promedio_cola_otros = modelosheet.Cells(2, 21)
+    persona_cola_otros = modelosheet.Cells(2, 20)
+    instantaneo_otros = modelosheet.Cells(2, 23)
+    total_consulta_otros = modelosheet.Cells(2, 22)
+        
+    'Ocultar la hoja
+    ActiveWindow.SelectedSheets.Visible = False
+    
+    'Pegar resultado
+    resultsheet.Cells(47, 2) = ejecutivos_necesarios_otros
+    resultsheet.Cells(40, 2) = total_consulta_otros
+    resultsheet.Cells(40, 3) = instantaneo_otros
+    resultsheet.Cells(54, 2) = tiempo_promedio_cola_otros
+    resultsheet.Cells(60, 2) = persona_cola_otros
+    Sheets("Reporte").Select
+
+End If
+
+ActiveWorkbook.Save
+
+    
+End Sub
+
+Sub Opcion1()
+
+Dim databook As Workbook
+Dim datasheet As Worksheet
+
+Set databook = ThisWorkbook
+Set datasheet = databook.Worksheets("Reporte")
+
+'Declaracion de variables
+dia_semana = 0
+demanda_licitaciones = 0
+demanda_creditos = 0
+demanda_otros = 0
+
+'Extraccion de datos
+dia_semana = datasheet.Cells(11, 14)
+demanda_licitaciones = datasheet.Cells(11, 5)
+demanda_creditos = datasheet.Cells(11, 8)
+demanda_otros = datasheet.Cells(11, 11)
+
+'Ejecutar segun condiciones
+If dia_semana = "Lunes" Then
+    Debug.Print (dia_semana)
+    Debug.Print (demanda_licitaciones)
+    Debug.Print (demanda_creditos)
+    Debug.Print (demanda_otros)
+    
+ElseIf dia_semana = "Martes" Then
+    Debug.Print (dia_semana)
+    Debug.Print (demanda_licitaciones)
+    Debug.Print (demanda_creditos)
+    Debug.Print (demanda_otros)
+
+ElseIf dia_semana = "Miercoles" Then
+    Debug.Print (dia_semana)
+    Debug.Print (demanda_licitaciones)
+    Debug.Print (demanda_creditos)
+    Debug.Print (demanda_otros)
+
+ElseIf dia_semana = "Jueves" Then
+    Debug.Print (dia_semana)
+    Debug.Print (demanda_licitaciones)
+    Debug.Print (demanda_creditos)
+    Debug.Print (demanda_otros)
+
+ElseIf dia_semana = "Vienres" Then
+    Debug.Print (dia_semana)
+    Debug.Print (demanda_licitaciones)
+    Debug.Print (demanda_creditos)
+    Debug.Print (demanda_otros)
+
+End If
+
+
+End Sub
+
