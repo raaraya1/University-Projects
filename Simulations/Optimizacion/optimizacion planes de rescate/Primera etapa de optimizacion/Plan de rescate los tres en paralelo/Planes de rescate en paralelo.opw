@@ -1,0 +1,25 @@
+[RESOURCES]
+Resource 3
+Resource 1
+Resource 2
+Tank 3.Regulator 1
+Tank 2.Regulator 1
+Tank 1.Regulator 1
+[VARIABLES]
+Process 5.NumberOut
+Process 4.NumberOut
+Process 3.NumberIn
+Dispose 2.NumberOut
+Create 4.NumberOut
+Create 3.NumberOut
+Create 2.NumberOut
+Create 1.NumberOut
+Dispose 1.NumberOut
+Process 5.NumberIn
+Process 4.NumberIn
+dias necesarios
+tiempo plan B
+tiempo plan C
+tiempo plan A
+Process 3.NumberOut
+termino de simulacion
