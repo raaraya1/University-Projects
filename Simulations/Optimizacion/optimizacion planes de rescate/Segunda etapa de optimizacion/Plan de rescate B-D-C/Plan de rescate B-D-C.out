@@ -1,0 +1,1506 @@
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 1 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 32.000218 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 37.000     (Insuf)    37.000     37.000          1    
+dias plan C                                 31.000     (Insuf)    31.000     31.000          1    
+dias plan A                                 32.000     (Insuf)    32.000     32.000          1    
+cantidad de dias                            37.000     (Insuf)    37.000     37.000          1    
+Entity 1.VATime                             .99822     (Insuf)    .00000     1.0197         70    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         70    
+Entity 1.WaitTime                           12.579     (Insuf)    .00000     32.000         70    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         70    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         70    
+Entity 1.TotalTime                          13.577     (Insuf)    1.0084     32.000         70    
+Process 5.Queue.WaitingTime                 7.5000     (Insuf)    .00000     15.000         16    
+Hold 1.Queue.WaitingTime                    32.000     (Insuf)    32.000     32.000          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         15    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         32    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         23    
+Process 4.Queue.WaitingTime                 11.975     (Insuf)    .00000     25.851         24    
+Process 3.Queue.WaitingTime                 16.000     (Insuf)    .00000     32.000         33    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.763     (Insuf)    .00000     105.00     61.000    
+Resource 3.NumberBusy                       .46875     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .46875     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .72338     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .72338     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               15.000     (Insuf)    .00000     39.000     24.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.043     (Insuf)    .00000     44.000     21.000    
+Process 3.Queue.NumberInQueue               28.499     (Insuf)    .00000     44.000     12.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          70.000    
+Resource 3.NumberSeized                     16.000    
+Resource 3.ScheduledUtilization             .46875    
+Resource 1.NumberSeized                     24.000    
+Resource 1.ScheduledUtilization             .72338    
+Resource 2.NumberSeized                     33.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            70.000    
+
+Beginning replication 2 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 2 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 30.005269 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 35.000     (Insuf)    35.000     35.000          1    
+dias plan C                                 29.000     (Insuf)    29.000     29.000          1    
+dias plan A                                 30.000     (Insuf)    30.000     30.000          1    
+cantidad de dias                            35.000     (Insuf)    35.000     35.000          1    
+Entity 1.VATime                             .99702     (Insuf)    .00000     1.0202         64    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         64    
+Entity 1.WaitTime                           11.705     (Insuf)    .00000     30.005         64    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         64    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         64    
+Entity 1.TotalTime                          12.702     (Insuf)    1.0114     30.005         64    
+Process 5.Queue.WaitingTime                 6.5000     (Insuf)    .00000     13.000         14    
+Hold 1.Queue.WaitingTime                    30.005     (Insuf)    30.005     30.005          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         13    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         30    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         21    
+Process 4.Queue.WaitingTime                 10.963     (Insuf)    .00000     23.037         22    
+Process 3.Queue.WaitingTime                 15.000     (Insuf)    .00000     30.000         31    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                73.431     (Insuf)    .00000     105.00     67.000    
+Resource 3.NumberBusy                       .43343     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .43343     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .73213     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .73213     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               14.302     (Insuf)    .00000     39.000     26.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.438     (Insuf)    .00000     44.000     23.000    
+Process 3.Queue.NumberInQueue               29.497     (Insuf)    .00000     44.000     14.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          64.000    
+Resource 3.NumberSeized                     14.000    
+Resource 3.ScheduledUtilization             .43343    
+Resource 1.NumberSeized                     22.000    
+Resource 1.ScheduledUtilization             .73213    
+Resource 2.NumberSeized                     31.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            64.000    
+
+Beginning replication 3 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 3 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 32.008008 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 37.000     (Insuf)    37.000     37.000          1    
+dias plan C                                 31.000     (Insuf)    31.000     31.000          1    
+dias plan A                                 32.000     (Insuf)    32.000     32.000          1    
+cantidad de dias                            37.000     (Insuf)    37.000     37.000          1    
+Entity 1.VATime                             .99802     (Insuf)    .00000     1.0202         70    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         70    
+Entity 1.WaitTime                           12.677     (Insuf)    .00000     32.008         70    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         70    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         70    
+Entity 1.TotalTime                          13.675     (Insuf)    1.0111     32.008         70    
+Process 5.Queue.WaitingTime                 7.5000     (Insuf)    .00000     15.000         16    
+Hold 1.Queue.WaitingTime                    32.008     (Insuf)    32.008     32.008          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         15    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         32    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         23    
+Process 4.Queue.WaitingTime                 12.248     (Insuf)    .00000     25.566         24    
+Process 3.Queue.WaitingTime                 16.000     (Insuf)    .00000     32.000         33    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.974     (Insuf)    .00000     105.00     61.000    
+Resource 3.NumberBusy                       .46888     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .46888     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .73236     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .73236     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               15.002     (Insuf)    .00000     39.000     24.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.247     (Insuf)    .00000     44.000     21.000    
+Process 3.Queue.NumberInQueue               28.495     (Insuf)    .00000     44.000     12.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          70.000    
+Resource 3.NumberSeized                     16.000    
+Resource 3.ScheduledUtilization             .46888    
+Resource 1.NumberSeized                     24.000    
+Resource 1.ScheduledUtilization             .73236    
+Resource 2.NumberSeized                     33.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            70.000    
+
+Beginning replication 4 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 4 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 31.008088 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 36.000     (Insuf)    36.000     36.000          1    
+dias plan C                                 30.000     (Insuf)    30.000     30.000          1    
+dias plan A                                 31.000     (Insuf)    31.000     31.000          1    
+cantidad de dias                            36.000     (Insuf)    36.000     36.000          1    
+Entity 1.VATime                             .99753     (Insuf)    .00000     1.0194         67    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         67    
+Entity 1.WaitTime                           12.015     (Insuf)    .00000     31.008         67    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         67    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         67    
+Entity 1.TotalTime                          13.012     (Insuf)    1.0115     31.008         67    
+Process 5.Queue.WaitingTime                 7.0000     (Insuf)    .00000     14.000         15    
+Hold 1.Queue.WaitingTime                    31.008     (Insuf)    31.008     31.008          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         14    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         31    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         22    
+Process 4.Queue.WaitingTime                 11.121     (Insuf)    .00000     24.803         23    
+Process 3.Queue.WaitingTime                 15.500     (Insuf)    .00000     31.000         32    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.863     (Insuf)    .00000     105.00     64.000    
+Resource 3.NumberBusy                       .45176     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .45176     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .71611     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .71611     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               14.680     (Insuf)    .00000     39.000     25.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.992     (Insuf)    .00000     44.000     22.000    
+Process 3.Queue.NumberInQueue               28.995     (Insuf)    .00000     44.000     13.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          67.000    
+Resource 3.NumberSeized                     15.000    
+Resource 3.ScheduledUtilization             .45176    
+Resource 1.NumberSeized                     23.000    
+Resource 1.ScheduledUtilization             .71611    
+Resource 2.NumberSeized                     32.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            67.000    
+
+Beginning replication 5 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 5 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 33.011025 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 38.000     (Insuf)    38.000     38.000          1    
+dias plan C                                 32.000     (Insuf)    32.000     32.000          1    
+dias plan A                                 35.000     (Insuf)    35.000     35.000          1    
+cantidad de dias                            38.000     (Insuf)    38.000     38.000          1    
+Entity 1.VATime                             .99869     (Insuf)    .00000     1.0216         75    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         75    
+Entity 1.WaitTime                           13.213     (Insuf)    .00000     33.011         75    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         75    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         75    
+Entity 1.TotalTime                          14.212     (Insuf)    1.0115     33.011         75    
+Process 5.Queue.WaitingTime                 8.0000     (Insuf)    .00000     16.000         17    
+Hold 1.Queue.WaitingTime                    33.011     (Insuf)    33.011     33.011          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         16    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         33    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         27    
+Process 4.Queue.WaitingTime                 13.500     (Insuf)    .00000     27.000         28    
+Process 3.Queue.WaitingTime                 16.500     (Insuf)    .00000     33.000         34    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                71.961     (Insuf)    .00000     105.00     56.000    
+Resource 3.NumberBusy                       .48502     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .48502     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .81824     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .81824     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               15.275     (Insuf)    .00000     39.000     23.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.360     (Insuf)    .00000     44.000     17.000    
+Process 3.Queue.NumberInQueue               27.994     (Insuf)    .00000     44.000     11.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          75.000    
+Resource 3.NumberSeized                     17.000    
+Resource 3.ScheduledUtilization             .48502    
+Resource 1.NumberSeized                     28.000    
+Resource 1.ScheduledUtilization             .81824    
+Resource 2.NumberSeized                     34.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            75.000    
+
+Beginning replication 6 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 6 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 30.000398 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 35.000     (Insuf)    35.000     35.000          1    
+dias plan C                                 29.000     (Insuf)    29.000     29.000          1    
+dias plan A                                 30.000     (Insuf)    30.000     30.000          1    
+cantidad de dias                            35.000     (Insuf)    35.000     35.000          1    
+Entity 1.VATime                             .99701     (Insuf)    .00000     1.0238         64    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         64    
+Entity 1.WaitTime                           11.618     (Insuf)    .00000     30.000         64    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         64    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         64    
+Entity 1.TotalTime                          12.615     (Insuf)    1.0104     30.000         64    
+Process 5.Queue.WaitingTime                 6.5000     (Insuf)    .00000     13.000         14    
+Hold 1.Queue.WaitingTime                    30.000     (Insuf)    30.000     30.000          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         13    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         30    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         21    
+Process 4.Queue.WaitingTime                 10.735     (Insuf)    .00000     23.595         22    
+Process 3.Queue.WaitingTime                 15.000     (Insuf)    .00000     30.000         31    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                73.246     (Insuf)    .00000     105.00     67.000    
+Resource 3.NumberBusy                       .43334     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .43334     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .71349     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .71349     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               14.300     (Insuf)    .00000     39.000     26.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.272     (Insuf)    .00000     44.000     23.000    
+Process 3.Queue.NumberInQueue               29.499     (Insuf)    .00000     44.000     14.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          64.000    
+Resource 3.NumberSeized                     14.000    
+Resource 3.ScheduledUtilization             .43334    
+Resource 1.NumberSeized                     22.000    
+Resource 1.ScheduledUtilization             .71349    
+Resource 2.NumberSeized                     31.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            64.000    
+
+Beginning replication 7 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 7 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 28.016123 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 33.000     (Insuf)    33.000     33.000          1    
+dias plan C                                 28.000     (Insuf)    28.000     28.000          1    
+dias plan A                                 28.000     (Insuf)    28.000     28.000          1    
+cantidad de dias                            33.000     (Insuf)    33.000     33.000          1    
+Entity 1.VATime                             .99645     (Insuf)    .00000     1.0218         59    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         59    
+Entity 1.WaitTime                           10.890     (Insuf)    .00000     28.016         59    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         59    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         59    
+Entity 1.TotalTime                          11.886     (Insuf)    1.0106     28.016         59    
+Process 5.Queue.WaitingTime                 5.5000     (Insuf)    .00000     11.000         12    
+Hold 1.Queue.WaitingTime                    28.016     (Insuf)    28.016     28.016          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         11    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         28    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         19    
+Process 4.Queue.WaitingTime                 10.157     (Insuf)    .00000     21.629         20    
+Process 3.Queue.WaitingTime                 14.000     (Insuf)    .00000     28.000         29    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                73.867     (Insuf)    .00000     105.00     72.000    
+Resource 3.NumberBusy                       .39321     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .39321     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .69197     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .69197     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               13.365     (Insuf)    .00000     39.000     28.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.897     (Insuf)    .00000     44.000     25.000    
+Process 3.Queue.NumberInQueue               30.491     (Insuf)    .00000     44.000     16.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          59.000    
+Resource 3.NumberSeized                     12.000    
+Resource 3.ScheduledUtilization             .39321    
+Resource 1.NumberSeized                     20.000    
+Resource 1.ScheduledUtilization             .69197    
+Resource 2.NumberSeized                     29.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            59.000    
+
+Beginning replication 8 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 8 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 32.007275 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 37.000     (Insuf)    37.000     37.000          1    
+dias plan C                                 31.000     (Insuf)    31.000     31.000          1    
+dias plan A                                 32.000     (Insuf)    32.000     32.000          1    
+cantidad de dias                            37.000     (Insuf)    37.000     37.000          1    
+Entity 1.VATime                             .99824     (Insuf)    .00000     1.0250         70    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         70    
+Entity 1.WaitTime                           12.623     (Insuf)    .00000     32.007         70    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         70    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         70    
+Entity 1.TotalTime                          13.621     (Insuf)    1.0111     32.007         70    
+Process 5.Queue.WaitingTime                 7.5000     (Insuf)    .00000     15.000         16    
+Hold 1.Queue.WaitingTime                    32.007     (Insuf)    32.007     32.007          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         15    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         32    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         23    
+Process 4.Queue.WaitingTime                 12.104     (Insuf)    .00000     25.903         24    
+Process 3.Queue.WaitingTime                 16.000     (Insuf)    .00000     32.000         33    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.856     (Insuf)    .00000     105.00     61.000    
+Resource 3.NumberBusy                       .46887     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .46887     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .72182     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .72182     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               15.002     (Insuf)    .00000     39.000     24.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.140     (Insuf)    .00000     44.000     21.000    
+Process 3.Queue.NumberInQueue               28.496     (Insuf)    .00000     44.000     12.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          70.000    
+Resource 3.NumberSeized                     16.000    
+Resource 3.ScheduledUtilization             .46887    
+Resource 1.NumberSeized                     24.000    
+Resource 1.ScheduledUtilization             .72182    
+Resource 2.NumberSeized                     33.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            70.000    
+
+Beginning replication 9 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 9 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 33.005346 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 38.000     (Insuf)    38.000     38.000          1    
+dias plan C                                 32.000     (Insuf)    32.000     32.000          1    
+dias plan A                                 35.000     (Insuf)    35.000     35.000          1    
+cantidad de dias                            38.000     (Insuf)    38.000     38.000          1    
+Entity 1.VATime                             .99863     (Insuf)    .00000     1.0210         75    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         75    
+Entity 1.WaitTime                           13.213     (Insuf)    .00000     33.005         75    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         75    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         75    
+Entity 1.TotalTime                          14.212     (Insuf)    1.0115     33.005         75    
+Process 5.Queue.WaitingTime                 8.0000     (Insuf)    .00000     16.000         17    
+Hold 1.Queue.WaitingTime                    33.005     (Insuf)    33.005     33.005          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         16    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         33    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         27    
+Process 4.Queue.WaitingTime                 13.500     (Insuf)    .00000     27.000         28    
+Process 3.Queue.WaitingTime                 16.500     (Insuf)    .00000     33.000         34    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                71.964     (Insuf)    .00000     105.00     56.000    
+Resource 3.NumberBusy                       .48493     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .48493     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .81821     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .81821     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               15.273     (Insuf)    .00000     39.000     23.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.362     (Insuf)    .00000     44.000     17.000    
+Process 3.Queue.NumberInQueue               27.997     (Insuf)    .00000     44.000     11.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          75.000    
+Resource 3.NumberSeized                     17.000    
+Resource 3.ScheduledUtilization             .48493    
+Resource 1.NumberSeized                     28.000    
+Resource 1.ScheduledUtilization             .81821    
+Resource 2.NumberSeized                     34.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            75.000    
+
+Beginning replication 10 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 10 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 31.003244 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 36.000     (Insuf)    36.000     36.000          1    
+dias plan C                                 30.000     (Insuf)    30.000     30.000          1    
+dias plan A                                 32.000     (Insuf)    32.000     32.000          1    
+cantidad de dias                            36.000     (Insuf)    36.000     36.000          1    
+Entity 1.VATime                             .99771     (Insuf)    .00000     1.0212         68    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         68    
+Entity 1.WaitTime                           12.161     (Insuf)    .00000     31.003         68    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         68    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         68    
+Entity 1.TotalTime                          13.159     (Insuf)    1.0117     31.003         68    
+Process 5.Queue.WaitingTime                 7.0000     (Insuf)    .00000     14.000         15    
+Hold 1.Queue.WaitingTime                    31.003     (Insuf)    31.003     31.003          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         14    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         31    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         23    
+Process 4.Queue.WaitingTime                 11.000     (Insuf)    .00000     22.000         23    
+Process 3.Queue.WaitingTime                 15.500     (Insuf)    .00000     31.000         32    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.800     (Insuf)    .00000     105.00     63.000    
+Resource 3.NumberBusy                       .45167     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .45167     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .74186     (Insuf)    .00000     1.0000     .00000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .74186     (Insuf)    .00000     1.0000     .00000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               14.678     (Insuf)    .00000     39.000     25.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.902     (Insuf)    .00000     44.000     22.000    
+Process 3.Queue.NumberInQueue               28.998     (Insuf)    .00000     44.000     13.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          68.000    
+Resource 3.NumberSeized                     15.000    
+Resource 3.ScheduledUtilization             .45167    
+Resource 1.NumberSeized                     23.000    
+Resource 1.ScheduledUtilization             .74186    
+Resource 2.NumberSeized                     32.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            68.000    
+
+Beginning replication 11 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 11 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 32.011421 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 37.000     (Insuf)    37.000     37.000          1    
+dias plan C                                 31.000     (Insuf)    31.000     31.000          1    
+dias plan A                                 32.000     (Insuf)    32.000     32.000          1    
+cantidad de dias                            37.000     (Insuf)    37.000     37.000          1    
+Entity 1.VATime                             .99796     (Insuf)    .00000     1.0196         70    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         70    
+Entity 1.WaitTime                           12.646     (Insuf)    .00000     32.011         70    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         70    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         70    
+Entity 1.TotalTime                          13.644     (Insuf)    1.0104     32.011         70    
+Process 5.Queue.WaitingTime                 7.5000     (Insuf)    .00000     15.000         16    
+Hold 1.Queue.WaitingTime                    32.011     (Insuf)    32.011     32.011          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         15    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         32    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         23    
+Process 4.Queue.WaitingTime                 12.162     (Insuf)    .00000     25.648         24    
+Process 3.Queue.WaitingTime                 16.000     (Insuf)    .00000     32.000         33    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.905     (Insuf)    .00000     105.00     61.000    
+Resource 3.NumberBusy                       .46894     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .46894     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .72984     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .72984     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               15.003     (Insuf)    .00000     39.000     24.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.182     (Insuf)    .00000     44.000     21.000    
+Process 3.Queue.NumberInQueue               28.494     (Insuf)    .00000     44.000     12.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          70.000    
+Resource 3.NumberSeized                     16.000    
+Resource 3.ScheduledUtilization             .46894    
+Resource 1.NumberSeized                     24.000    
+Resource 1.ScheduledUtilization             .72984    
+Resource 2.NumberSeized                     33.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            70.000    
+
+Beginning replication 12 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 12 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 31.011506 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 36.000     (Insuf)    36.000     36.000          1    
+dias plan C                                 30.000     (Insuf)    30.000     30.000          1    
+dias plan A                                 34.000     (Insuf)    34.000     34.000          1    
+cantidad de dias                            36.000     (Insuf)    36.000     36.000          1    
+Entity 1.VATime                             .99813     (Insuf)    .00000     1.0207         70    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         70    
+Entity 1.WaitTime                           12.485     (Insuf)    .00000     31.011         70    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         70    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         70    
+Entity 1.TotalTime                          13.484     (Insuf)    1.0095     31.011         70    
+Process 5.Queue.WaitingTime                 7.0000     (Insuf)    .00000     14.000         15    
+Hold 1.Queue.WaitingTime                    31.011     (Insuf)    31.011     31.011          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         14    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         31    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         25    
+Process 4.Queue.WaitingTime                 12.500     (Insuf)    .00000     25.000         26    
+Process 3.Queue.WaitingTime                 15.500     (Insuf)    .00000     31.000         32    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.765     (Insuf)    .00000     105.00     61.000    
+Resource 3.NumberBusy                       .45182     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .45182     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .80652     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .80652     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               14.681     (Insuf)    .00000     39.000     25.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.803     (Insuf)    .00000     44.000     19.000    
+Process 3.Queue.NumberInQueue               28.994     (Insuf)    .00000     44.000     13.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          70.000    
+Resource 3.NumberSeized                     15.000    
+Resource 3.ScheduledUtilization             .45182    
+Resource 1.NumberSeized                     26.000    
+Resource 1.ScheduledUtilization             .80652    
+Resource 2.NumberSeized                     32.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            70.000    
+
+Beginning replication 13 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 13 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 31.013107 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 36.000     (Insuf)    36.000     36.000          1    
+dias plan C                                 30.000     (Insuf)    30.000     30.000          1    
+dias plan A                                 34.000     (Insuf)    34.000     34.000          1    
+cantidad de dias                            36.000     (Insuf)    36.000     36.000          1    
+Entity 1.VATime                             .99815     (Insuf)    .00000     1.0207         70    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         70    
+Entity 1.WaitTime                           12.485     (Insuf)    .00000     31.013         70    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         70    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         70    
+Entity 1.TotalTime                          13.484     (Insuf)    1.0078     31.013         70    
+Process 5.Queue.WaitingTime                 7.0000     (Insuf)    .00000     14.000         15    
+Hold 1.Queue.WaitingTime                    31.013     (Insuf)    31.013     31.013          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         14    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         31    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         25    
+Process 4.Queue.WaitingTime                 12.000     (Insuf)    .00000     24.000         25    
+Process 3.Queue.WaitingTime                 15.500     (Insuf)    .00000     31.000         32    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.765     (Insuf)    .00000     105.00     61.000    
+Resource 3.NumberBusy                       .45184     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .45184     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .80611     (Insuf)    .00000     1.0000     .00000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .80611     (Insuf)    .00000     1.0000     .00000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               14.681     (Insuf)    .00000     39.000     25.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.804     (Insuf)    .00000     44.000     20.000    
+Process 3.Queue.NumberInQueue               28.993     (Insuf)    .00000     44.000     13.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          70.000    
+Resource 3.NumberSeized                     15.000    
+Resource 3.ScheduledUtilization             .45184    
+Resource 1.NumberSeized                     25.000    
+Resource 1.ScheduledUtilization             .80611    
+Resource 2.NumberSeized                     32.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            70.000    
+
+Beginning replication 14 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 14 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 31.009312 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 36.000     (Insuf)    36.000     36.000          1    
+dias plan C                                 30.000     (Insuf)    30.000     30.000          1    
+dias plan A                                 31.000     (Insuf)    31.000     31.000          1    
+cantidad de dias                            36.000     (Insuf)    36.000     36.000          1    
+Entity 1.VATime                             .99749     (Insuf)    .00000     1.0209         67    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         67    
+Entity 1.WaitTime                           12.184     (Insuf)    .00000     31.009         67    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         67    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         67    
+Entity 1.TotalTime                          13.181     (Insuf)    1.0099     31.009         67    
+Process 5.Queue.WaitingTime                 7.0000     (Insuf)    .00000     14.000         15    
+Hold 1.Queue.WaitingTime                    31.009     (Insuf)    31.009     31.009          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         14    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         31    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         22    
+Process 4.Queue.WaitingTime                 11.615     (Insuf)    .00000     24.830         23    
+Process 3.Queue.WaitingTime                 15.500     (Insuf)    .00000     31.000         32    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                73.228     (Insuf)    .00000     105.00     64.000    
+Resource 3.NumberBusy                       .45178     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .45178     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .71525     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .71525     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               14.680     (Insuf)    .00000     39.000     25.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.358     (Insuf)    .00000     44.000     22.000    
+Process 3.Queue.NumberInQueue               28.995     (Insuf)    .00000     44.000     13.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          67.000    
+Resource 3.NumberSeized                     15.000    
+Resource 3.ScheduledUtilization             .45178    
+Resource 1.NumberSeized                     23.000    
+Resource 1.ScheduledUtilization             .71525    
+Resource 2.NumberSeized                     32.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            67.000    
+
+Beginning replication 15 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 15 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 33.01393 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 38.000     (Insuf)    38.000     38.000          1    
+dias plan C                                 33.000     (Insuf)    33.000     33.000          1    
+dias plan A                                 36.000     (Insuf)    36.000     36.000          1    
+cantidad de dias                            38.000     (Insuf)    38.000     38.000          1    
+Entity 1.VATime                             .99916     (Insuf)    .00000     1.0226         77    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         77    
+Entity 1.WaitTime                           13.402     (Insuf)    .00000     33.013         77    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         77    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         77    
+Entity 1.TotalTime                          14.401     (Insuf)    1.0093     33.013         77    
+Process 5.Queue.WaitingTime                 8.0000     (Insuf)    .00000     16.000         17    
+Hold 1.Queue.WaitingTime                    33.013     (Insuf)    33.013     33.013          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         16    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         33    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         27    
+Process 4.Queue.WaitingTime                 13.500     (Insuf)    .00000     27.000         28    
+Process 3.Queue.WaitingTime                 16.000     (Insuf)    .00000     32.000         33    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                71.960     (Insuf)    .00000     105.00     54.000    
+Resource 3.NumberBusy                       .48507     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .48507     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .81826     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .81826     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       .99958     (Insuf)    .00000     1.0000     .00000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      .99958     (Insuf)    .00000     1.0000     .00000    
+Process 5.Queue.NumberInQueue               15.275     (Insuf)    .00000     39.000     23.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.360     (Insuf)    .00000     44.000     17.000    
+Process 3.Queue.NumberInQueue               27.993     (Insuf)    .00000     44.000     12.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          77.000    
+Resource 3.NumberSeized                     17.000    
+Resource 3.ScheduledUtilization             .48507    
+Resource 1.NumberSeized                     28.000    
+Resource 1.ScheduledUtilization             .81826    
+Resource 2.NumberSeized                     33.000    
+Resource 2.ScheduledUtilization             .99958    
+System.NumberOut                            77.000    
+
+Beginning replication 16 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 16 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 29.012915 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 34.000     (Insuf)    34.000     34.000          1    
+dias plan C                                 28.000     (Insuf)    28.000     28.000          1    
+dias plan A                                 29.000     (Insuf)    29.000     29.000          1    
+cantidad de dias                            34.000     (Insuf)    34.000     34.000          1    
+Entity 1.VATime                             .99658     (Insuf)    .00000     1.0215         61    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         61    
+Entity 1.WaitTime                           11.265     (Insuf)    .00000     29.012         61    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         61    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         61    
+Entity 1.TotalTime                          12.262     (Insuf)    1.0110     29.012         61    
+Process 5.Queue.WaitingTime                 6.0000     (Insuf)    .00000     12.000         13    
+Hold 1.Queue.WaitingTime                    29.012     (Insuf)    29.012     29.012          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         12    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         29    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         20    
+Process 4.Queue.WaitingTime                 10.457     (Insuf)    .00000     22.400         21    
+Process 3.Queue.WaitingTime                 14.500     (Insuf)    .00000     29.000         30    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                73.619     (Insuf)    .00000     105.00     70.000    
+Resource 3.NumberBusy                       .41405     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .41405     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .71044     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .71044     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               13.867     (Insuf)    .00000     39.000     27.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.605     (Insuf)    .00000     44.000     24.000    
+Process 3.Queue.NumberInQueue               29.993     (Insuf)    .00000     44.000     15.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          61.000    
+Resource 3.NumberSeized                     13.000    
+Resource 3.ScheduledUtilization             .41405    
+Resource 1.NumberSeized                     21.000    
+Resource 1.ScheduledUtilization             .71044    
+Resource 2.NumberSeized                     30.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            61.000    
+
+Beginning replication 17 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 17 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 30.000943 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 35.000     (Insuf)    35.000     35.000          1    
+dias plan C                                 29.000     (Insuf)    29.000     29.000          1    
+dias plan A                                 32.000     (Insuf)    32.000     32.000          1    
+cantidad de dias                            35.000     (Insuf)    35.000     35.000          1    
+Entity 1.VATime                             .99765     (Insuf)    .00000     1.0210         66    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         66    
+Entity 1.WaitTime                           11.878     (Insuf)    .00000     30.000         66    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         66    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         66    
+Entity 1.TotalTime                          12.876     (Insuf)    1.0121     30.000         66    
+Process 5.Queue.WaitingTime                 6.5000     (Insuf)    .00000     13.000         14    
+Hold 1.Queue.WaitingTime                    30.000     (Insuf)    30.000     30.000          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         13    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         30    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         24    
+Process 4.Queue.WaitingTime                 12.000     (Insuf)    .00000     24.000         25    
+Process 3.Queue.WaitingTime                 15.000     (Insuf)    .00000     30.000         31    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                73.061     (Insuf)    .00000     105.00     65.000    
+Resource 3.NumberBusy                       .43335     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .43335     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .80001     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .80001     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               14.300     (Insuf)    .00000     39.000     26.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.999     (Insuf)    .00000     44.000     20.000    
+Process 3.Queue.NumberInQueue               29.499     (Insuf)    .00000     44.000     14.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          66.000    
+Resource 3.NumberSeized                     14.000    
+Resource 3.ScheduledUtilization             .43335    
+Resource 1.NumberSeized                     25.000    
+Resource 1.ScheduledUtilization             .80001    
+Resource 2.NumberSeized                     31.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            66.000    
+
+Beginning replication 18 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 18 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 33.008447 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 38.000     (Insuf)    38.000     38.000          1    
+dias plan C                                 32.000     (Insuf)    32.000     32.000          1    
+dias plan A                                 35.000     (Insuf)    35.000     35.000          1    
+cantidad de dias                            38.000     (Insuf)    38.000     38.000          1    
+Entity 1.VATime                             .99895     (Insuf)    .00000     1.0229         75    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         75    
+Entity 1.WaitTime                           13.213     (Insuf)    .00000     33.008         75    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         75    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         75    
+Entity 1.TotalTime                          14.212     (Insuf)    1.0098     33.008         75    
+Process 5.Queue.WaitingTime                 8.0000     (Insuf)    .00000     16.000         17    
+Hold 1.Queue.WaitingTime                    33.008     (Insuf)    33.008     33.008          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         16    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         33    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         27    
+Process 4.Queue.WaitingTime                 13.500     (Insuf)    .00000     27.000         28    
+Process 3.Queue.WaitingTime                 16.500     (Insuf)    .00000     33.000         34    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                71.963     (Insuf)    .00000     105.00     56.000    
+Resource 3.NumberBusy                       .48498     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .48498     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .81823     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .81823     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               15.274     (Insuf)    .00000     39.000     23.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.361     (Insuf)    .00000     44.000     17.000    
+Process 3.Queue.NumberInQueue               27.995     (Insuf)    .00000     44.000     11.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          75.000    
+Resource 3.NumberSeized                     17.000    
+Resource 3.ScheduledUtilization             .48498    
+Resource 1.NumberSeized                     28.000    
+Resource 1.ScheduledUtilization             .81823    
+Resource 2.NumberSeized                     34.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            75.000    
+
+Beginning replication 19 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 19 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 32.012361 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 37.000     (Insuf)    37.000     37.000          1    
+dias plan C                                 31.000     (Insuf)    31.000     31.000          1    
+dias plan A                                 32.000     (Insuf)    32.000     32.000          1    
+cantidad de dias                            37.000     (Insuf)    37.000     37.000          1    
+Entity 1.VATime                             .99805     (Insuf)    .00000     1.0221         70    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         70    
+Entity 1.WaitTime                           12.614     (Insuf)    .00000     32.012         70    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         70    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         70    
+Entity 1.TotalTime                          13.612     (Insuf)    1.0106     32.012         70    
+Process 5.Queue.WaitingTime                 7.5000     (Insuf)    .00000     15.000         16    
+Hold 1.Queue.WaitingTime                    32.012     (Insuf)    32.012     32.012          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         15    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         32    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         23    
+Process 4.Queue.WaitingTime                 12.048     (Insuf)    .00000     25.195         24    
+Process 3.Queue.WaitingTime                 16.000     (Insuf)    .00000     32.000         33    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.834     (Insuf)    .00000     105.00     61.000    
+Resource 3.NumberBusy                       .46896     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .46896     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .74400     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .74400     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               15.003     (Insuf)    .00000     39.000     24.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               26.097     (Insuf)    .00000     44.000     21.000    
+Process 3.Queue.NumberInQueue               28.493     (Insuf)    .00000     44.000     12.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          70.000    
+Resource 3.NumberSeized                     16.000    
+Resource 3.ScheduledUtilization             .46896    
+Resource 1.NumberSeized                     24.000    
+Resource 1.ScheduledUtilization             .74400    
+Resource 2.NumberSeized                     33.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            70.000    
+
+Beginning replication 20 of 20
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 20 of 20
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+Replication ended at time      : 33.006485 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+dias plan B                                 38.000     (Insuf)    38.000     38.000          1    
+dias plan C                                 32.000     (Insuf)    32.000     32.000          1    
+dias plan A                                 33.000     (Insuf)    33.000     33.000          1    
+cantidad de dias                            38.000     (Insuf)    38.000     38.000          1    
+Entity 1.VATime                             .99834     (Insuf)    .00000     1.0205         73    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000         73    
+Entity 1.WaitTime                           12.972     (Insuf)    .00000     33.006         73    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000         73    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000         73    
+Entity 1.TotalTime                          13.970     (Insuf)    1.0098     33.006         73    
+Process 5.Queue.WaitingTime                 8.0000     (Insuf)    .00000     16.000         17    
+Hold 1.Queue.WaitingTime                    33.006     (Insuf)    33.006     33.006          1    
+Seize Regulator 3.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         16    
+Seize Regulator 2.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         33    
+Seize Regulator 1.Queue.WaitingTime         .00000     (Insuf)    .00000     .00000         24    
+Process 4.Queue.WaitingTime                 12.298     (Insuf)    .00000     26.484         25    
+Process 3.Queue.WaitingTime                 16.500     (Insuf)    .00000     33.000         34    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Entity 1.WIP                                72.204     (Insuf)    .00000     105.00     58.000    
+Resource 3.NumberBusy                       .48495     (Insuf)    .00000     1.0000     1.0000    
+Resource 3.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 3.Utilization                      .48495     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberBusy                       .74295     (Insuf)    .00000     1.0000     1.0000    
+Resource 1.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 1.Utilization                      .74295     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberBusy                       1.0000     (Insuf)    .00000     1.0000     1.0000    
+Resource 2.NumberScheduled                  1.0000     (Insuf)    1.0000     1.0000     1.0000    
+Resource 2.Utilization                      1.0000     (Insuf)    .00000     1.0000     1.0000    
+Process 5.Queue.NumberInQueue               15.274     (Insuf)    .00000     39.000     23.000    
+Hold 1.Queue.NumberInQueue                  1.0000     (Insuf)    .00000     1.0000     .00000    
+Seize Regulator 3.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 2.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Seize Regulator 1.Queue.NumberInQueue       .00000     (Insuf)    .00000     .00000     .00000    
+Process 4.Queue.NumberInQueue               25.679     (Insuf)    .00000     44.000     20.000    
+Process 3.Queue.NumberInQueue               27.996     (Insuf)    .00000     44.000     11.000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           131.00    
+Entity 1.NumberOut                          73.000    
+Resource 3.NumberSeized                     17.000    
+Resource 3.ScheduledUtilization             .48495    
+Resource 1.NumberSeized                     25.000    
+Resource 1.ScheduledUtilization             .74295    
+Resource 2.NumberSeized                     34.000    
+Resource 2.ScheduledUtilization             1.0000    
+System.NumberOut                            73.000    
+
+
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                 Output Summary for 20 Replications
+
+Project: Unnamed Project                                             Run execution date : 6/27/2019
+Analyst: raaraya@outlook.es                                          Model revision date: 6/27/2019
+
+
+                                             OUTPUTS
+
+Identifier                                 Average    Half-width Minimum    Maximum # Replications
+___________________________________________________________________________________________________
+
+Entity 1.NumberIn                           131.00     .00000     131.00     131.00     20
+Entity 1.NumberOut                          69.050     2.2185     59.000     77.000     20
+Resource 3.NumberSeized                     15.350     .66664     12.000     17.000     20
+Resource 3.ScheduledUtilization             .45678     .01193     .39321     .48507     20
+Resource 1.NumberSeized                     24.350     1.0978     20.000     28.000     20
+Resource 1.ScheduledUtilization             .75506     .02100     .69197     .81826     20
+Resource 2.NumberSeized                     32.300     .64600     29.000     34.000     20
+Resource 2.ScheduledUtilization             .99998     4.4157E-05 .99958     1.0000     20
+System.NumberOut                            69.050     2.2185     59.000     77.000     20
+
+Simulation run time: 0.17 minutes.
+Simulation run complete.

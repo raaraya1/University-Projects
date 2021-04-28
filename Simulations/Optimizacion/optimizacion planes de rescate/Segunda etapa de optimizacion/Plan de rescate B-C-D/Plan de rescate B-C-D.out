@@ -1,0 +1,15 @@
+
+----------------------------------------------------------------------
+11580:FOPEN
+A runtime error was detected during initialization
+The system error:
+  "No such file or directory"
+occurred while processing file:
+  "C:\Users\rodrigo\Desktop\simulaciones\Proyecto examen\optimizacion planes de rescate\Segunda etapa de optimizacion\Plan de rescate B-C-D\B-C-D.dat"
+Possible cause: Invalid filename. Correct and retry.
+Possible cause: Too many files opened or insufficient free memory.
+You may want to try increasing the maximum files available to your
+operating system.
+----------------------------------------------------------------------
+
+
