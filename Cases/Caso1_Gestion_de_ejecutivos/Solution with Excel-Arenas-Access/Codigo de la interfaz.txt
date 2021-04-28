@@ -1,0 +1,914 @@
+Sub Simulate()
+
+'--------------------Antes de simular modificaremos los archivos de los ejecutivos----------------------------------
+'Modificar archivo de ejecutivos de licencias
+    Application.ScreenUpdating = False
+    Application.DisplayAlerts = False
+    
+    'Se declaran las variables a utilizar
+    Dim datasheet As Worksheet
+    Dim dataBook As Workbook
+    Dim xFile As String
+    Dim dataFolder As String
+    
+    'Se declara la carpeta que contiene los archivos de datos
+    dataFolder = ThisWorkbook.Path
+    xFile = "ResourceSetMemberDataLicencia" & ".xlsx"
+    
+    'hoja donde se copian los datos
+    Set menusheet = ThisWorkbook.Worksheets("Hoja1")
+    
+    'buscar ultima fila
+    rowend = menusheet.Cells(1048576, 10).End(xlUp).Row
+    
+    'copiar
+    Seleccion = "J15:J" & rowend + 140
+    menusheet.Range(Seleccion).Select
+    Selection.Copy
+ 
+    'Se abre el archivo de datos
+    Workbooks.Open dataFolder & "\" & xFile
+    Set dataBook = Workbooks(xFile)
+    Set datasheet = dataBook.Worksheets("Sheet1")
+             
+    'pegar
+     datasheet.Range("B5").Select
+     Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                    :=False, Transpose:=False
+    
+    'cerrar libro de datos
+    dataBook.Close SaveChanges:=True
+    
+    Application.DisplayAlerts = True
+    Application.ScreenUpdating = True
+
+'Modificar archivo de ejecutivos de creditos
+    Application.ScreenUpdating = False
+    Application.DisplayAlerts = False
+
+    
+    'Se declara la carpeta que contiene los archivos de datos
+    dataFolder = ThisWorkbook.Path
+    xFile = "ResourceSetMemberDataCreditos" & ".xlsx"
+    
+    'hoja donde se copian los datos
+    Set menusheet = ThisWorkbook.Worksheets("Hoja1")
+    
+    'buscar ultima fila
+    rowend = menusheet.Cells(1048576, 10).End(xlUp).Row
+    
+    'copiar
+    Seleccion = "K15:K" & rowend + 140
+    menusheet.Range(Seleccion).Select
+    Selection.Copy
+ 
+    'Se abre el archivo de datos
+    Workbooks.Open dataFolder & "\" & xFile
+    Set dataBook = Workbooks(xFile)
+    Set datasheet = dataBook.Worksheets("Sheet1")
+             
+    'pegar
+     datasheet.Range("B5").Select
+     Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                    :=False, Transpose:=False
+    
+    'cerrar libro de datos
+    dataBook.Close SaveChanges:=True
+    
+    Application.DisplayAlerts = True
+    Application.ScreenUpdating = True
+    
+'Modificar archivo de ejecutivos de otros
+    Application.ScreenUpdating = False
+    Application.DisplayAlerts = False
+
+    
+    'Se declara la carpeta que contiene los archivos de datos
+    dataFolder = ThisWorkbook.Path
+    xFile = "ResourceSetMemberDataOtros" & ".xlsx"
+    
+    'hoja donde se copian los datos
+    Set menusheet = ThisWorkbook.Worksheets("Hoja1")
+    
+    'buscar ultima fila
+    rowend = menusheet.Cells(1048576, 10).End(xlUp).Row
+    
+    'copiar
+    Seleccion = "L15:L" & rowend + 140
+    menusheet.Range(Seleccion).Select
+    Selection.Copy
+ 
+    'Se abre el archivo de datos
+    Workbooks.Open dataFolder & "\" & xFile
+    Set dataBook = Workbooks(xFile)
+    Set datasheet = dataBook.Worksheets("Sheet1")
+             
+    'pegar
+     datasheet.Range("B5").Select
+     Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                    :=False, Transpose:=False
+    
+    'cerrar libro de datos
+    dataBook.Close SaveChanges:=True
+    
+    Application.DisplayAlerts = True
+    Application.ScreenUpdating = True
+
+
+'--------------------Preparacion de simulacion-----------------------------------------------------------------------
+
+'variables que pertenecen a arenas
+Dim app As Object
+Dim modelo As Object
+Dim modulo As Object
+
+'variables para manipular la hoja de calculo
+Dim hoja As Excel.Worksheet
+
+'realizar calculos o procesos internos
+Dim x, y As Single
+
+'hoja de referencia a la hoja de calculo
+Set hoja = Hoja1
+
+'----------------definir parametros a utilizar------------------------------------------------------------------------
+
+'SET UP
+numero_replicas = 0
+periodo_calentamiento = 0
+largo_replicas = 0
+horas_dia = 0
+tiempo_base = 0
+replica_tiempo = 0
+calentamiento__tiempo = 0
+
+'Modulo creacion1
+distribucion1 = 0
+unidad1 = 0
+entidades_por_llegada1 = 0
+max_llegadas1 = 0
+primera_creacion1 = 0
+
+'Modulo creacion2
+distribucion2 = 0
+unidad2 = 0
+entidades_por_llegada2 = 0
+max_llegadas2 = 0
+primera_creacion2 = 0
+
+'Modulo creacion3
+distribucio3 = 0
+unidad3 = 0
+entidades_por_llegada3 = 0
+max_llegadas3 = 0
+primera_creacion3 = 0
+
+'Parametros capacidad de atencion de los recursos
+capacidad_atencion_ej1 = 0
+capacidad_atencion_ej2 = 0
+capacidad_atencion_ej3 = 0
+capacidad_atencion_ej4 = 0
+capacidad_atencion_ej5 = 0
+capacidad_atencion_ej6 = 0
+capacidad_atencion_ej7 = 0
+capacidad_atencion_ej8 = 0
+capacidad_atencion_ej9 = 0
+capacidad_atencion_ej10 = 0
+capacidad_atencion_ej11 = 0
+capacidad_atencion_ej12 = 0
+capacidad_atencion_ej13 = 0
+capacidad_atencion_ej14 = 0
+capacidad_atencion_ej15 = 0
+capacidad_atencion_ej16 = 0
+capacidad_atencion_ej17 = 0
+capacidad_atencion_ej18 = 0
+capacidad_atencion_ej19 = 0
+capacidad_atencion_ej20 = 0
+
+'Distribucion de demora para los recursos
+demora_ej1 = 0
+demora_ej2 = 0
+demora_ej3 = 0
+demora_ej4 = 0
+demora_ej5 = 0
+demora_ej6 = 0
+demora_ej7 = 0
+demora_ej8 = 0
+demora_ej9 = 0
+demora_ej10 = 0
+demora_ej11 = 0
+demora_ej12 = 0
+demora_ej13 = 0
+demora_ej14 = 0
+demora_ej15 = 0
+demora_ej16 = 0
+demora_ej17 = 0
+demora_ej18 = 0
+demora_ej19 = 0
+demora_ej20 = 0
+
+'Unidad de tiempo para la demora de los recursos
+unidad_ej1 = 0
+unidad_ej2 = 0
+unidad_ej3 = 0
+unidad_ej4 = 0
+unidad_ej5 = 0
+unidad_ej6 = 0
+unidad_ej7 = 0
+unidad_ej8 = 0
+unidad_ej9 = 0
+unidad_ej10 = 0
+unidad_ej11 = 0
+unidad_ej12 = 0
+unidad_ej13 = 0
+unidad_ej14 = 0
+unidad_ej15 = 0
+unidad_ej16 = 0
+unidad_ej17 = 0
+unidad_ej18 = 0
+unidad_ej19 = 0
+unidad_ej20 = 0
+
+
+
+'-------------capturar los parametros que se deben enviar al modelo de arena--------------------------------------
+
+'SET UP
+numero_replicas = hoja.Cells(4, 2)
+periodo_calentamiento = hoja.Cells(6, 2)
+largo_replicas = hoja.Cells(8, 2)
+horas_dia = hoja.Cells(10, 2)
+tiempo_base = hoja.Cells(12, 2).Value
+replica_tiempo = hoja.Cells(4, 3)
+calentamiento__tiempo = hoja.Cells(6, 3)
+
+'Modulo creacion1
+distribucion1 = hoja.Cells(5, 5)
+unidad1 = hoja.Cells(5, 6)
+entidades_por_llegada1 = hoja.Cells(7, 5)
+max_llegadas1 = hoja.Cells(7, 6)
+primera_creacion1 = hoja.Cells(7, 7)
+
+'Modulo creacion2
+distribucion2 = hoja.Cells(5, 9)
+unidad2 = hoja.Cells(5, 10)
+entidades_por_llegada2 = hoja.Cells(7, 9)
+max_llegadas2 = hoja.Cells(7, 10)
+primera_creacion2 = hoja.Cells(7, 11)
+
+'Modulo creacion3
+distribucio3 = hoja.Cells(5, 13)
+unidad3 = hoja.Cells(5, 14)
+entidades_por_llegada3 = hoja.Cells(7, 13)
+max_llegadas3 = hoja.Cells(7, 14)
+primera_creacion3 = hoja.Cells(7, 15)
+
+'Asignar parametros de los recursos
+capacidad_atencion_ej1 = hoja.Cells(15, 6)
+capacidad_atencion_ej2 = hoja.Cells(16, 6)
+capacidad_atencion_ej3 = hoja.Cells(17, 6)
+capacidad_atencion_ej4 = hoja.Cells(18, 6)
+capacidad_atencion_ej5 = hoja.Cells(19, 6)
+capacidad_atencion_ej6 = hoja.Cells(20, 6)
+capacidad_atencion_ej7 = hoja.Cells(21, 6)
+capacidad_atencion_ej8 = hoja.Cells(22, 6)
+capacidad_atencion_ej9 = hoja.Cells(23, 6)
+capacidad_atencion_ej10 = hoja.Cells(24, 6)
+capacidad_atencion_ej11 = hoja.Cells(25, 6)
+capacidad_atencion_ej12 = hoja.Cells(26, 6)
+capacidad_atencion_ej13 = hoja.Cells(27, 6)
+capacidad_atencion_ej14 = hoja.Cells(28, 6)
+capacidad_atencion_ej15 = hoja.Cells(29, 6)
+capacidad_atencion_ej16 = hoja.Cells(30, 6)
+capacidad_atencion_ej17 = hoja.Cells(31, 6)
+capacidad_atencion_ej18 = hoja.Cells(32, 6)
+capacidad_atencion_ej19 = hoja.Cells(33, 6)
+capacidad_atencion_ej20 = hoja.Cells(34, 6)
+
+'Asignar distribucion de demora de los recursos
+demora_ej1 = hoja.Cells(15, 7)
+demora_ej2 = hoja.Cells(16, 7)
+demora_ej3 = hoja.Cells(17, 7)
+demora_ej4 = hoja.Cells(18, 7)
+demora_ej5 = hoja.Cells(19, 7)
+demora_ej6 = hoja.Cells(20, 7)
+demora_ej7 = hoja.Cells(21, 7)
+demora_ej8 = hoja.Cells(22, 7)
+demora_ej9 = hoja.Cells(23, 7)
+demora_ej10 = hoja.Cells(24, 7)
+demora_ej11 = hoja.Cells(25, 7)
+demora_ej12 = hoja.Cells(26, 7)
+demora_ej13 = hoja.Cells(27, 7)
+demora_ej14 = hoja.Cells(28, 7)
+demora_ej15 = hoja.Cells(29, 7)
+demora_ej16 = hoja.Cells(30, 7)
+demora_ej17 = hoja.Cells(31, 7)
+demora_ej18 = hoja.Cells(32, 7)
+demora_ej19 = hoja.Cells(33, 7)
+demora_ej20 = hoja.Cells(34, 7)
+
+'Asignar unidades de tiempo de las demoras de los recursos
+unidad_ej1 = hoja.Cells(15, 8)
+unidad_ej2 = hoja.Cells(16, 8)
+unidad_ej3 = hoja.Cells(17, 8)
+unidad_ej4 = hoja.Cells(18, 8)
+unidad_ej5 = hoja.Cells(19, 8)
+unidad_ej6 = hoja.Cells(20, 8)
+unidad_ej7 = hoja.Cells(21, 8)
+unidad_ej8 = hoja.Cells(22, 8)
+unidad_ej9 = hoja.Cells(23, 8)
+unidad_ej10 = hoja.Cells(24, 8)
+unidad_ej11 = hoja.Cells(25, 8)
+unidad_ej12 = hoja.Cells(26, 8)
+unidad_ej13 = hoja.Cells(27, 8)
+unidad_ej14 = hoja.Cells(28, 8)
+unidad_ej15 = hoja.Cells(29, 8)
+unidad_ej16 = hoja.Cells(30, 8)
+unidad_ej17 = hoja.Cells(31, 8)
+unidad_ej18 = hoja.Cells(32, 8)
+unidad_ej19 = hoja.Cells(33, 8)
+unidad_ej20 = hoja.Cells(34, 8)
+
+'---------------------------------------------------------------------------------------------------------------
+
+'obtenemos la ruta del archivo (del modelo de arenas)
+ruta = ThisWorkbook.Path
+
+'se ejecuta la aplicacion de arena y se abre el modelo
+Set app = CreateObject("Arena.Application")
+Set modelo = app.Models.Open(ruta + "\Aproximacion1.doe")
+
+'---------------------Modificacion de la ruta de los archivos de set---------------------------------------------
+
+'Modificamos para set de licencias
+Ruta_licencia = ruta + "\ResourceSetMemberDataLicencia.xlsx"
+id = modelo.Modules.Find(smFindTag, "Ruta_licencia")
+Set modulo = modelo.Modules(id)
+modulo.Data("OSFile") = Ruta_licencia
+
+'Modificamos para set de creditos
+Ruta_credito = ruta + "\ResourceSetMemberDataCreditos.xlsx"
+id = modelo.Modules.Find(smFindTag, "Ruta_credito")
+Set modulo = modelo.Modules(id)
+modulo.Data("OSFile") = Ruta_credito
+
+'Modificamos para set de otros
+Ruta_otros = ruta + "\ResourceSetMemberDataOtros.xlsx"
+id = modelo.Modules.Find(smFindTag, "Ruta_otros")
+Set modulo = modelo.Modules(id)
+modulo.Data("OSFile") = Ruta_otros
+
+'------------------Modificacion modulo creacion licencia--------------------------------------------------------
+
+'asignamos a cada modulo del modelo un numero unico que indentificara cada bloque
+'recuperamos este numero del modelo especificando el tag
+id = modelo.Modules.Find(smFindTag, "Creacion_licencias")
+
+'obtenemos el modulo de creacion
+Set modulo = modelo.Modules(id)
+
+'modificamos los parametros para modulo de creacion de licencias
+modulo.Data("Interarrival Type") = "Expression"
+modulo.Data("Expression") = distribucion1
+modulo.Data("Units") = unidad1
+modulo.Data("Batch Size") = entidades_por_llegada1
+modulo.Data("Max Batches") = max_llegadas1
+modulo.Data("First Creation") = primera_creacion1
+
+
+'------------------Modificacion modulo creacion creditos--------------------------------------------------------
+
+'asignamos a cada modulo del modelo un numero unico que indentificara cada bloque
+'recuperamos este numero del modelo especificando el tag
+id = modelo.Modules.Find(smFindTag, "Creacion_creditos")
+
+'obtenemos el modulo de creacion
+Set modulo = modelo.Modules(id)
+
+'modificamos los parametros para modulo de creacion de licencias
+modulo.Data("Interarrival Type") = "Expression"
+modulo.Data("Expression") = distribucion2
+modulo.Data("Units") = unidad2
+modulo.Data("Batch Size") = entidades_por_llegada2
+modulo.Data("Max Batches") = max_llegadas2
+modulo.Data("First Creation") = primera_creacion2
+
+'------------------Modificacion modulo creacion otros--------------------------------------------------------
+
+'asignamos a cada modulo del modelo un numero unico que indentificara cada bloque
+'recuperamos este numero del modelo especificando el tag
+id = modelo.Modules.Find(smFindTag, "Creacion_otros")
+
+'obtenemos el modulo de creacion
+Set modulo = modelo.Modules(id)
+
+'modificamos los parametros para modulo de creacion de licencias
+modulo.Data("Interarrival Type") = "Expression"
+modulo.Data("Expression") = distribucion3
+modulo.Data("Units") = unidad3
+modulo.Data("Batch Size") = entidades_por_llegada3
+modulo.Data("Max Batches") = max_llegadas3
+modulo.Data("First Creation") = primera_creacion3
+
+'------------------Modificacion parametros de los recursos--------------------------------------------------------
+
+'asignamos a cada modulo del modelo un numero unico que indentificara cada bloque
+'recuperamos este numero del modelo especificando el tag
+id = modelo.Modules.Find(smFindTag, "EJ_1")
+
+'obtenemos el parametro de capacidad del recurso
+Set modulo = modelo.Modules(id)
+
+'modificamos el parametro de capacidad
+modulo.Data("Capacity") = capacidad_atencion_ej1
+
+'------------------Hacemos lo mismo para el resto---------------------------------------------------------------
+'modificamos ejecutivo 2
+id = modelo.Modules.Find(smFindTag, "EJ_2")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej2
+
+'modificamos ejecutivo 3
+id = modelo.Modules.Find(smFindTag, "EJ_3")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej3
+
+'modificamos ejecutivo 4
+id = modelo.Modules.Find(smFindTag, "EJ_4")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej4
+
+'modificamos ejecutivo 5
+id = modelo.Modules.Find(smFindTag, "EJ_5")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej5
+
+'modificamos ejecutivo 6
+id = modelo.Modules.Find(smFindTag, "EJ_6")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej6
+
+'modificamos ejecutivo 7
+id = modelo.Modules.Find(smFindTag, "EJ_7")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej7
+
+'modificamos ejecutivo 8
+id = modelo.Modules.Find(smFindTag, "EJ_8")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej8
+
+'modificamos ejecutivo 9
+id = modelo.Modules.Find(smFindTag, "EJ_9")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej9
+
+'modificamos ejecutivo 10
+id = modelo.Modules.Find(smFindTag, "EJ_10")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej10
+
+'modificamos ejecutivo 11
+id = modelo.Modules.Find(smFindTag, "EJ_11")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej11
+
+'modificamos ejecutivo 12
+id = modelo.Modules.Find(smFindTag, "EJ_12")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej12
+
+'modificamos ejecutivo 13
+id = modelo.Modules.Find(smFindTag, "EJ_13")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej13
+
+'modificamos ejecutivo 14
+id = modelo.Modules.Find(smFindTag, "EJ_14")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej14
+
+'modificamos ejecutivo 15
+id = modelo.Modules.Find(smFindTag, "EJ_15")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej15
+
+'modificamos ejecutivo 16
+id = modelo.Modules.Find(smFindTag, "EJ_16")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej16
+
+'modificamos ejecutivo 17
+id = modelo.Modules.Find(smFindTag, "EJ_17")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej17
+
+'modificamos ejecutivo 18
+id = modelo.Modules.Find(smFindTag, "EJ_18")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej18
+
+'modificamos ejecutivo 19
+id = modelo.Modules.Find(smFindTag, "EJ_19")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej19
+
+'modificamos ejecutivo 20
+id = modelo.Modules.Find(smFindTag, "EJ_20")
+Set modulo = modelo.Modules(id)
+modulo.Data("Capacity") = capacidad_atencion_ej20
+
+'---------------modificacion de los parametros de falla de los recursos--------------------------------------------------
+
+'asignamos a cada modulo del modelo un numero unico que indentificara cada bloque
+'recuperamos este numero del modelo especificando el tag
+id = modelo.Modules.Find(smFindTag, "F_EJ_1")
+
+'obtenemos el objeto de la falla del recurso
+Set modulo = modelo.Modules(id)
+
+'modificamos los parametros de demora y unidad de demora
+modulo.Data("failDown") = demora_ej1
+modulo.Data("Down Time Units") = unidad_ej1
+
+'------------------Hacemos lo mismo para el resto---------------------------------------------------------------
+
+'modificamos falla 1
+id = modelo.Modules.Find(smFindTag, "F_EJ_1")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej1
+modulo.Data("Down Time Units") = unidad_ej1
+
+'modificamos falla 2
+id = modelo.Modules.Find(smFindTag, "F_EJ_2")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej2
+modulo.Data("Down Time Units") = unidad_ej2
+
+'modificamos falla 3
+id = modelo.Modules.Find(smFindTag, "F_EJ_3")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej3
+modulo.Data("Down Time Units") = unidad_ej3
+
+'modificamos falla 4
+id = modelo.Modules.Find(smFindTag, "F_EJ_4")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej4
+modulo.Data("Down Time Units") = unidad_ej4
+
+'modificamos falla 5
+id = modelo.Modules.Find(smFindTag, "F_EJ_5")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej5
+modulo.Data("Down Time Units") = unidad_ej5
+
+'modificamos falla 6
+id = modelo.Modules.Find(smFindTag, "F_EJ_6")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej6
+modulo.Data("Down Time Units") = unidad_ej6
+
+'modificamos falla 7
+id = modelo.Modules.Find(smFindTag, "F_EJ_7")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej7
+modulo.Data("Down Time Units") = unidad_ej7
+
+'modificamos falla 8
+id = modelo.Modules.Find(smFindTag, "F_EJ_8")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej8
+modulo.Data("Down Time Units") = unidad_ej8
+
+'modificamos falla 9
+id = modelo.Modules.Find(smFindTag, "F_EJ_9")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej9
+modulo.Data("Down Time Units") = unidad_ej9
+
+'modificamos falla 10
+id = modelo.Modules.Find(smFindTag, "F_EJ_10")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej10
+modulo.Data("Down Time Units") = unidad_ej10
+
+'modificamos falla 11
+id = modelo.Modules.Find(smFindTag, "F_EJ_11")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej11
+modulo.Data("Down Time Units") = unidad_ej11
+
+'modificamos falla 12
+id = modelo.Modules.Find(smFindTag, "F_EJ_12")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej12
+modulo.Data("Down Time Units") = unidad_ej12
+
+'modificamos falla 13
+id = modelo.Modules.Find(smFindTag, "F_EJ_13")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej13
+modulo.Data("Down Time Units") = unidad_ej13
+
+'modificamos falla 14
+id = modelo.Modules.Find(smFindTag, "F_EJ_14")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej14
+modulo.Data("Down Time Units") = unidad_ej14
+
+'modificamos falla 15
+id = modelo.Modules.Find(smFindTag, "F_EJ_15")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej15
+modulo.Data("Down Time Units") = unidad_ej15
+
+'modificamos falla 16
+id = modelo.Modules.Find(smFindTag, "F_EJ_16")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej16
+modulo.Data("Down Time Units") = unidad_ej16
+
+'modificamos falla 17
+id = modelo.Modules.Find(smFindTag, "F_EJ_17")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej17
+modulo.Data("Down Time Units") = unidad_ej17
+
+'modificamos falla 18
+id = modelo.Modules.Find(smFindTag, "F_EJ_18")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej18
+modulo.Data("Down Time Units") = unidad_ej18
+
+'modificamos falla 19
+id = modelo.Modules.Find(smFindTag, "F_EJ_19")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej19
+modulo.Data("Down Time Units") = unidad_ej19
+
+'modificamos falla 20
+id = modelo.Modules.Find(smFindTag, "F_EJ_20")
+Set modulo = modelo.Modules(id)
+modulo.Data("failDown") = demora_ej20
+modulo.Data("Down Time Units") = unidad_ej20
+
+'-----------------------------------------------------------------------------------------------------------------
+
+'evitamos que aparezca el mensaje de ver el reporte
+modelo.DisplayDefaultReport = smNeverDisplay
+
+'con las siguientes lineas se especifican el set up
+modelo.BaseTimeUnits = smMinutes   'Se debe modificar desde aqui
+modelo.NumberOfReplications = numero_replicas
+modelo.ReplicationLength = largo_replicas
+modelo.ReplicationLengthTimeUnits = smHours   'Se debe modificar desde aqui
+modelo.RunSpeed = 10
+
+'iniciamos la ejecucion del modelo
+modelo.Go smGoWait
+
+'finalizamos la simulacion
+modelo.End
+
+'guardamos y cerramos el modelo
+modelo.Save
+modelo.Close
+
+
+End Sub
+
+
+Sub access_database()
+
+On Error GoTo SubError
+    Dim DbLoc As Variant
+    Dim db As DAO.Database
+    Dim rs As DAO.Recordset
+    Dim rs1 As DAO.Recordset
+    Dim xlBook As Workbook
+    Dim xlSheet As Worksheet
+    Dim recCount As Long
+    Dim recCount1 As Long
+    Dim SQL As String
+    
+    DbLoc = ThisWorkbook.Path & "\Aproximacion1.accdb"
+               
+    Debug.Print DbLock
+    'Setup references to workbook and sheet
+    Set xlBook = ActiveWorkbook
+    Set xlSheet = xlBook.Worksheets("Hoja2")
+ 
+    xlSheet.Range("A5:M1500").ClearContents
+    
+    'Communicate with the user
+    Application.StatusBar = "Connecting to an external database..."
+    Application.Cursor = xlWait
+ 
+    Set db = OpenDatabase(DbLoc)
+    SQL = "select SourceCategory.Name, SourceProcess.Name, Rep, Count from StatsAndOutputQry where SourceCategory.Name in ('User Specified')"
+    SQL1 = "select SourceProcess.Name, Rep, MinObs from StatsAndOutputQry where SourceDataType.Name in ('Expression')"
+    
+'    SQL = "select value as valor, AvgObs as promedio, MaxObs as maximo, MinObs as minimo, SourceProcess.Name as objeto, SourceDataType.Name as propiedad from StatsAndOutputQry"
+'    SQL = "SELECT SalesQuarter & '-' & SalesYear, Division, GrossSales, GrossMargin "
+'    SQL = SQL & "FROM QuarterlySales "
+'    SQL = SQL & "WHERE SalesQuarter IN (1, 2) "
+'    SQL = SQL & "ORDER BY SalesYear, SalesQuarter "
+
+    'Execute our query and populate the recordset
+    Set rs = db.OpenRecordset(SQL, dbOpenSnapshot)
+    Set rs1 = db.OpenRecordset(SQL1, dbOpenSnapshot)
+    'Set rs = db.OpenRecordset("qryQtrSales", dbOpenSnapshot)
+    'Set rs = db.OpenRecordset("Parts", dbOpenSnapshot)
+ 
+    'Copy recordset to spreadsheet
+    Application.StatusBar = "Writing to spreadsheet..."
+    If rs.RecordCount = 0 Then
+        MsgBox "No data retrieved from database", vbInformation + vbOKOnly, "No Data"
+        GoTo SubExit
+    Else
+        rs.MoveLast
+        recCount = rs.RecordCount
+        rs.MoveFirst
+    End If
+    
+    If rs1.RecordCount = 0 Then
+        MsgBox "No data retrieved from database", vbInformation + vbOKOnly, "No Data"
+        GoTo SubExit
+    Else
+        rs1.MoveLast
+        recCount1 = rs1.RecordCount
+        rs1.MoveFirst
+    End If
+   
+    xlSheet.Range("C5").CopyFromRecordset rs
+    xlSheet.Range("I5").CopyFromRecordset rs1
+ 
+'    xlSheet.Range("C" & recCount + 4 & ":F" & recCount + 4).Borders(xlEdgeBottom).LineStyle = XlLineStyle.xlDouble
+'    xlSheet.Range("E" & recCount + 5).Formula = "=SUM(E5:E" & recCount + 4 & ")"
+'    xlSheet.Range("F" & recCount + 5).Formula = "=SUM(F5:F" & recCount + 4 & ")"
+ 
+    Application.StatusBar = "Update complete"
+ 
+
+
+SubExit:
+On Error Resume Next
+    Application.Cursor = xlDefault
+    rs.Close
+    Set rs = Nothing
+    Set xlSheet = Nothing
+    Set xlBook = Nothing
+    Exit Sub
+ 
+SubError:
+    Application.StatusBar = ""
+    MsgBox "RefreshData - UpdateData VBA error: " & vbCrLf & Err.Number & " = " & Err.Description
+    Resume SubExit
+
+End Sub
+
+Sub interpretacion_resultados()
+
+'declaracion de variables
+Dim xlBook As Workbook
+Dim xlSheet As Worksheet
+Dim xlSheet1 As Worksheet
+Dim rowend As Double
+
+'Espacio de trabajo
+Set xlBook = ActiveWorkbook
+Set xlSheet = xlBook.Worksheets("Hoja2")
+Set xlSheet1 = xlBook.Worksheets("Hoja1")
+
+'ultima fila
+rowend = xlSheet.Cells(1048576, 9).End(xlUp).Row
+
+'-------------------------------variables-----------------------------------------------------------------
+
+'velocidad acumulada de entrada
+Velocidad_llegada_licencia_acumulada = 0
+Velocidad_llegada_credito_acumulada = 0
+Velocidad_llegada_otros_acumulada = 0
+
+'Velocidad acumulada de salida
+Velocidad_salida_licencia_acumulada = 0
+Velocidad_salida_credito_acumulada = 0
+Velocidad_salida_otros_acumulada = 0
+
+'numero de replicas
+numero_replicas = 0
+
+'Velocidad promedio de entrada
+Velocidad_llegada_licencia_promedio = 0
+Velocidad_llegada_credito_promedio = 0
+Velocidad_llegada_otros_promedio = 0
+
+'velocidad promedio de salida
+Velocidad_salida_licencia_promedio = 0
+Velocidad_salida_credito_promedio = 0
+Velocidad_salida_otros_promedio = 0
+
+'---------------------------------KPI----------------------------------------------------------------------
+
+'Estado estacionario de cola
+Estado_licencias = 0
+Estado_creditos = 0
+Estado_otros = 0
+
+'--------------------------------alertas-------------------------------------------------------------------
+
+'No salida de requerimientos en el sistema
+Alarma_salida_licencias = 0
+Alarma_salida_creditos = 0
+Alarma_salida_otros = 0
+
+'-------------------------------asignacion a variables-----------------------------------------------------
+
+'asignacion de velocidades acumuladas
+For i = 5 To rowend
+    If xlSheet.Cells(i, 9) = "Velocidad llegada licencia" Then
+        Velocidad_llegada_licencia_acumulada = Velocidad_llegada_licencia_acumulada + xlSheet.Cells(i, 11)
+    End If
+    
+    If xlSheet.Cells(i, 9) = "Velocidad llegada credito" Then
+        Velocidad_llegada_credito_acumulada = Velocidad_llegada_credito_acumulada + xlSheet.Cells(i, 11)
+    End If
+    
+    If xlSheet.Cells(i, 9) = "Velocidad llegada otro" Then
+        Velocidad_llegada_otros_acumulada = Velocidad_llegada_otros_acumulada + xlSheet.Cells(i, 11)
+    End If
+    
+    If xlSheet.Cells(i, 9) = "velocidad_atencion_licencia" Then
+        Velocidad_salida_licencia_acumulada = Velocidad_salida_licencia_acumulada + xlSheet.Cells(i, 11)
+        If xlSheet.Cells(i, 11) = "" Then
+            Alarma_salida_licencias = Alarma_salida_licencias + 1
+        End If
+    End If
+    
+    If xlSheet.Cells(i, 9) = "velocidad_atencion_credito" Then
+        Velocidad_salida_credito_acumulada = Velocidad_salida_credito_acumulada + xlSheet.Cells(i, 11)
+        If xlSheet.Cells(i, 11) = "" Then
+            Alarma_salida_creditos = Alarma_salida_creditos + 1
+        End If
+    End If
+    
+    If xlSheet.Cells(i, 9) = "velocidad_atencion_otro" Then
+        Velocidad_salida_otros_acumulada = Velocidad_salida_otros_acumulada + xlSheet.Cells(i, 11)
+        If xlSheet.Cells(i, 11) = "" Then
+            Alarma_salida_otros = Alarma_salida_otros + 1
+        End If
+    End If
+
+Next
+
+'Asignacion de numero de replicas
+numero_replicas = xlSheet1.Cells(4, 2)
+
+'Asignacion velocidad promedio de entrada
+Velocidad_llegada_licencia_promedio = Velocidad_llegada_licencia_acumulada / numero_replicas
+Velocidad_llegada_credito_promedio = Velocidad_llegada_credito_acumulada / numero_replicas
+Velocidad_llegada_otros_promedio = Velocidad_llegada_otros_acumulada / numero_replicas
+
+'Asignacion velocidad promedio de salida
+Velocidad_salida_licencia_promedio = Velocidad_salida_licencia_acumulada / numero_replicas
+Velocidad_salida_credito_promedio = Velocidad_salida_credito_acumulada / numero_replicas
+Velocidad_salida_otros_promedio = Velocidad_salida_otros_acumulada / numero_replicas
+
+'Asignacion de estado de la cola (se busca que este valor sea menor a 1)
+Estado_licencias = Velocidad_llegada_licencia_promedio / Velocidad_salida_licencia_promedio
+Estado_creditos = Velocidad_llegada_credito_promedio / Velocidad_salida_credito_promedio
+Estado_otros = Velocidad_llegada_otros_promedio / Velocidad_salida_otros_promedio
+
+'MsgBox "No data retrieved from database", vbInformation + vbOKOnly, "No Data"
+'Debug.Print Velocidad_llegada_licencia_acumulada
+'Debug.Print Velocidad_llegada_credito_acumulada
+'Debug.Print Velocidad_llegada_otros_acumulada
+'Debug.Print Velocidad_salida_licencia_acumulada
+'Debug.Print Velocidad_salida_credito_acumulada
+'Debug.Print Velocidad_salida_otros_acumulada
+'Debug.Print Alarma_salida_licencias
+'Debug.Print Alarma_salida_creditos
+'Debug.Print Alarma_salida_otros
+'Debug.Print Estado_licencias
+'Debug.Print Estado_creditos
+'Debug.Print Estado_otros
+
+'--------------------------Mostrar recomendacion de asignacion ----------------------------------------------
+
+If Estado_licencias >= 1 Or Alarma_salida_licencias >= 1 Then
+    MsgBox "Hace falta asignar ejecutivos para la atencion de licencias"
+
+ElseIf Estado_creditos >= 1 Or Alarma_salida_creditos >= 1 Then
+    MsgBox "Hace falta asignar ejecutivos para la atencion de creditos"
+
+ElseIf Estado_otros >= 1 Or Alarma_salida_otros >= 1 Then
+    MsgBox "Hace falta asignar ejecutivos para la atencion de otros"
+Else
+    MsgBox "El estado de todas las colas se encuentra de forma estacionaria con: p_licencias = " & Estado_licencias & ", p_creditos = " & Estado_creditos & " y p_creditos = " & Estado_otros
+    
+    
+End If
+
+End Sub
+
