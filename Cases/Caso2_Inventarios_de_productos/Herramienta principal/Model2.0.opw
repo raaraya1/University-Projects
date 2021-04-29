@@ -1,0 +1,108 @@
+[RESOURCES]
+[VARIABLES]
+Nivel de inventario4
+Nivel de inventario3
+Nivel de inventario2
+Nivel de inventario1
+volver a ordenar1?.NumberOut False
+volver a ordenar1?.NumberOut True
+Ajuste_tiempo
+volver a ordenar2?.NumberOut False
+Costo_Transporte_B1C8
+Costo_Transporte_B1C7
+Costo_Transporte_B1C6
+Costo_Transporte_B1C5
+Costo_Transporte_B1C4
+Costo_Transporte_B1C3
+Costo_Transporte_B1C2
+Costo_Transporte_B1C1
+Cantidad_Ordenada_F3P1
+Cantidad_Ordenada_F4P1
+Cantidad_Ordenada_F2P1
+Cantidad_Ordenada_F1P1
+Cantidad_Ordenada_F3P3
+Cantidad_Ordenada_F2P3
+Cantidad_Ordenada_F4P3
+Cantidad_Ordenada_F1P3
+Cantidad_Ordenada_F4P2
+Cantidad_Ordenada_F3P2
+Cantidad_Ordenada_F2P2
+Cantidad_Ordenada_F1P2
+Cantidad_Ordenada_F4P4
+Cantidad_Ordenada_F3P4
+Cantidad_Ordenada_F1P4
+Cantidad_Ordenada_F2P4
+volver a ordenar2?.NumberOut True
+Costo Almacenaje4
+Costo Almacenaje1
+Costo Almacenaje3
+Costo Almacenaje2
+Ordenes en proceso4
+Ordenes en proceso2
+Ordenes en proceso3
+Reposicion de inventario.NumberOut
+Ordenes en proceso1
+volver a ordenar3?.NumberOut True
+volver a ordenar3?.NumberOut False
+Salida de inventario.NumberOut
+Costo Total
+volver a ordenar4?.NumberOut False
+volver a ordenar4?.NumberOut True
+Demora en salida.NumberOut
+Costo transporte FB
+Demora en salida.NumberIn
+Dispose 4.NumberOut
+Contador de periodos.NumberOut
+Demora en llegada4.NumberOut
+Demora en llegada3.NumberOut
+Demora en llegada2.NumberOut
+Demora en llegada1.NumberOut
+Up to level4
+Up to level3
+Up to level2
+Up to level1
+Demora en llegada4.NumberIn
+Demora en llegada3.NumberIn
+Demora en llegada2.NumberIn
+Demora en llegada1.NumberIn
+Capacidad camion4
+Capacidad camion2
+Capacidad camion3
+Capacidad camion1
+Demanda_P4C8
+Demanda_P4C7
+Demanda_P4C6
+Demanda_P4C5
+Demanda_P4C4
+Demanda_P4C3
+Demanda_P4C2
+Demanda_P4C1
+Demanda_P3C8
+Demanda_P3C7
+Demanda_P3C6
+Demanda_P3C5
+Demanda_P3C4
+Demanda_P3C3
+Demanda_P3C2
+Demanda_P3C1
+Demanda_P2C8
+Demanda_P2C7
+Demanda_P2C6
+Demanda_P2C5
+Demanda_P2C4
+Demanda_P2C3
+Demanda_P2C2
+Demanda_P2C1
+Demanda_P1C8
+Demanda_P1C7
+Demanda_P1C6
+Demanda_P1C5
+Demanda_P1C4
+Demanda_P1C3
+Demanda_P1C2
+Demanda_P1C1
+Costo de operacion
+Punto de reorden4
+Punto de reorden1
+Punto de reorden2
+Punto de reorden3

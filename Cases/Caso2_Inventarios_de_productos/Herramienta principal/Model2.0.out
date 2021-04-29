@@ -1,0 +1,69 @@
+SIMAN Run Controller.
+
+53.5 Days>SIMAN Run Controller.
+
+73.5 Days>
+                                      ARENA Simulation Results
+                                raaraya@outlook.es - License: STUDENT
+
+                                  Summary for Replication 1 of 10
+
+Project: Unnamed Project                                             Run execution date :11/29/2020
+Analyst: raaraya@outlook.es                                          Model revision date:11/29/2020
+
+Replication ended at time      : 73.5 Days 
+Base Time Units: Days
+
+                                           TALLY VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Observations
+___________________________________________________________________________________________________
+
+Nivel de servicio4                          1.0000     (Insuf)    1.0000     1.0000         74    
+Nivel de servicio3                          1.0000     (Insuf)    1.0000     1.0000         74    
+Nivel de servicio2                          1.0000     (Insuf)    1.0000     1.0000         74    
+Nivel de servicio1                          1.0000     (Insuf)    1.0000     1.0000         74    
+costo_total                                 4.7696E+05 (Insuf)    .00000     1.1100E+06     74    
+Entity 1.VATime                             .62686     (Insuf)    .00000     12.365        131    
+Entity 1.NVATime                            .00000     (Insuf)    .00000     .00000        131    
+Entity 1.WaitTime                           .00000     (Insuf)    .00000     .00000        131    
+Entity 1.TranTime                           .00000     (Insuf)    .00000     .00000        131    
+Entity 1.OtherTime                          .00000     (Insuf)    .00000     .00000        131    
+Entity 1.TotalTime                          .62686     (Insuf)    .00000     12.365        131    
+
+                                     DISCRETE-CHANGE VARIABLES
+
+Identifier                                  Average   Half Width  Minimum    Maximum   Final Value
+___________________________________________________________________________________________________
+
+Nivel de inventario4 Value                  3721.1     (Insuf)    2480.1     5000.0     2480.1    
+Nivel de inventario3 Value                  3468.7     (Insuf)    800.53     5155.7     3382.0    
+Nivel de inventario2 Value                  3860.1     (Insuf)    2755.3     5000.0     2755.3    
+Nivel de inventario1 Value                  3114.3     (Insuf)    1042.8     5322.6     5209.7    
+Cantidad_Ordenada_F3P1 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F4P1 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F2P1 Value                19.031     (Insuf)    .00000     279.77     .00000    
+Cantidad_Ordenada_F1P1 Value                308.50     (Insuf)    .00000     4000.0     285.14    
+Cantidad_Ordenada_F3P3 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F2P3 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F4P3 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F1P3 Value                484.79     (Insuf)    .00000     4355.2     409.99    
+Cantidad_Ordenada_F4P2 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F3P2 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F2P2 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F1P2 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F4P4 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F3P4 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F1P4 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Cantidad_Ordenada_F2P4 Value                .00000     (Insuf)    .00000     .00000     .00000    
+Entity 1.WIP                                1.2873     (Insuf)    .00000     7.0000     3.0000    
+
+                                             OUTPUTS
+
+Identifier                                   Value
+_____________________________________________________________
+
+Entity 1.NumberIn                           134.00    
+Entity 1.NumberOut                          131.00    
+System.NumberOut                            131.00    
+

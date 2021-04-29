@@ -1,0 +1,1498 @@
+Sub Simular()
+
+'--------------------Antes de simular modificaremos los parametros de la simulacion----------------------------------
+'Modificar parametros del modelo
+    Application.ScreenUpdating = False
+    Application.DisplayAlerts = False
+    
+    'Se declaran las variables a utilizar
+    Dim datasheet As Worksheet
+    Dim datasheet1 As Worksheet
+    Dim datasheet2 As Worksheet
+    Dim datasheet3 As Worksheet
+    Dim dataBook As Workbook
+    Dim xFile As String
+    Dim dataFolder As String
+    
+    'Se declara la carpeta que contiene los archivos de datos
+    dataFolder = ThisWorkbook.Path
+    xFile = "interfaz modelo" & ".xlsx"
+    
+    Set datasheet = ThisWorkbook.Sheets("Parametros de entrada")
+    Set datasheet1 = ThisWorkbook.Sheets("Variables de control")
+    Set datasheet2 = ThisWorkbook.Sheets("Set Up")
+    Set datasheet3 = ThisWorkbook.Sheets("Arbol de decision")
+
+
+'--------------------Preparacion de simulacion-----------------------------------------------------------------------
+
+'variables que pertenecen a arenas
+Dim app As Object
+Dim modelo As Object
+Dim modulo As Object
+
+
+
+'----------------definir parametros a utilizar------------------------------------------------------------------------
+
+'Parametro costo de ordenar
+costo_ordenar_111 = 0
+costo_ordenar_211 = 0
+costo_ordenar_311 = 0
+costo_ordenar_411 = 0
+costo_ordenar_121 = 0
+costo_ordenar_221 = 0
+costo_ordenar_321 = 0
+costo_ordenar_421 = 0
+costo_ordenar_131 = 0
+costo_ordenar_231 = 0
+costo_ordenar_331 = 0
+costo_ordenar_431 = 0
+costo_ordenar_141 = 0
+costo_ordenar_241 = 0
+costo_ordenar_341 = 0
+costo_ordenar_441 = 0
+costo_ordenar_111 = 0
+costo_ordenar_211 = 0
+costo_ordenar_311 = 0
+costo_ordenar_411 = 0
+costo_ordenar_121 = 0
+costo_ordenar_221 = 0
+costo_ordenar_321 = 0
+costo_ordenar_421 = 0
+costo_ordenar_131 = 0
+costo_ordenar_231 = 0
+costo_ordenar_331 = 0
+costo_ordenar_431 = 0
+costo_ordenar_141 = 0
+costo_ordenar_241 = 0
+costo_ordenar_341 = 0
+costo_ordenar_441 = 0
+
+'Parametro para fabricar
+costo_fabricar_11 = 0
+costo_fabricar_21 = 0
+costo_fabricar_31 = 0
+costo_fabricar_41 = 0
+costo_fabricar_12 = 0
+costo_fabricar_22 = 0
+costo_fabricar_32 = 0
+costo_fabricar_42 = 0
+costo_fabricar_13 = 0
+costo_fabricar_23 = 0
+costo_fabricar_33 = 0
+costo_fabricar_43 = 0
+costo_fabricar_14 = 0
+costo_fabricar_24 = 0
+costo_fabricar_34 = 0
+costo_fabricar_44 = 0
+
+'Parametro capacidad productiva
+
+capacidad_productiva_11 = 0
+capacidad_productiva_21 = 0
+capacidad_productiva_31 = 0
+capacidad_productiva_41 = 0
+capacidad_productiva_12 = 0
+capacidad_productiva_22 = 0
+capacidad_productiva_32 = 0
+capacidad_productiva_42 = 0
+capacidad_productiva_13 = 0
+capacidad_productiva_23 = 0
+capacidad_productiva_33 = 0
+capacidad_productiva_43 = 0
+capacidad_productiva_14 = 0
+capacidad_productiva_24 = 0
+capacidad_productiva_34 = 0
+capacidad_productiva_44 = 0
+
+'Parametro costo de transportar
+
+costo_transportar_FB_111 = 0
+costo_transportar_FB_211 = 0
+costo_transportar_FB_311 = 0
+costo_transportar_FB_411 = 0
+costo_transportar_FB_121 = 0
+costo_transportar_FB_221 = 0
+costo_transportar_FB_321 = 0
+costo_transportar_FB_421 = 0
+costo_transportar_FB_131 = 0
+costo_transportar_FB_231 = 0
+costo_transportar_FB_331 = 0
+costo_transportar_FB_431 = 0
+costo_transportar_FB_141 = 0
+costo_transportar_FB_241 = 0
+costo_transportar_FB_341 = 0
+costo_transportar_FB_441 = 0
+
+
+'Parametro costo de despacho
+costo_despacho_BC_111 = 0
+costo_despacho_BC_121 = 0
+costo_despacho_BC_131 = 0
+costo_despacho_BC_141 = 0
+costo_despacho_BC_151 = 0
+costo_despacho_BC_161 = 0
+costo_despacho_BC_171 = 0
+costo_despacho_BC_181 = 0
+
+
+'Parametro demanda
+
+Demanda_111 = 0
+Demanda_211 = 0
+Demanda_311 = 0
+Demanda_411 = 0
+Demanda_121 = 0
+Demanda_221 = 0
+Demanda_321 = 0
+Demanda_421 = 0
+Demanda_131 = 0
+Demanda_231 = 0
+Demanda_331 = 0
+Demanda_431 = 0
+Demanda_141 = 0
+Demanda_241 = 0
+Demanda_341 = 0
+Demanda_441 = 0
+Demanda_151 = 0
+Demanda_251 = 0
+Demanda_351 = 0
+Demanda_451 = 0
+Demanda_161 = 0
+Demanda_261 = 0
+Demanda_361 = 0
+Demanda_461 = 0
+Demanda_171 = 0
+Demanda_271 = 0
+Demanda_371 = 0
+Demanda_471 = 0
+Demanda_181 = 0
+Demanda_281 = 0
+Demanda_381 = 0
+Demanda_481 = 0
+
+
+
+'Parametro costo almacenaje
+
+costo_almacenaje_11 = 0
+costo_almacenaje_21 = 0
+costo_almacenaje_31 = 0
+costo_almacenaje_41 = 0
+
+
+'Parametro inventario inicial
+
+inventario_inicial_11 = 0
+inventario_inicial_21 = 0
+inventario_inicial_31 = 0
+inventario_inicial_41 = 0
+
+
+'Parametro capacidad del camion
+capacidad_camion_1 = 0
+capacidad_camion_2 = 0
+capacidad_camion_3 = 0
+capacidad_camion_4 = 0
+
+
+'Parametro costo fijo camion
+costo_fijo_camion = 0
+
+
+'--------------gererar las variables de control------------------------------------------------------------------
+
+'Variable de control de Up to level
+up_to_level_11 = 0
+up_to_level_21 = 0
+up_to_level_31 = 0
+up_to_level_41 = 0
+
+
+'Variable de control de reorder point
+reorder_point_11 = 0
+reorder_point_21 = 0
+reorder_point_31 = 0
+reorder_point_41 = 0
+
+
+'-------------capturar los parametros que se deben enviar al modelo de arena--------------------------------------
+
+
+
+'Parametro costo de ordenar
+costo_ordenar_111 = datasheet.Cells(4, 4)
+costo_ordenar_211 = datasheet.Cells(5, 4)
+costo_ordenar_311 = datasheet.Cells(6, 4)
+costo_ordenar_411 = datasheet.Cells(7, 4)
+costo_ordenar_121 = datasheet.Cells(8, 4)
+costo_ordenar_221 = datasheet.Cells(9, 4)
+costo_ordenar_321 = datasheet.Cells(10, 4)
+costo_ordenar_421 = datasheet.Cells(11, 4)
+costo_ordenar_131 = datasheet.Cells(12, 4)
+costo_ordenar_231 = datasheet.Cells(13, 4)
+costo_ordenar_331 = datasheet.Cells(14, 4)
+costo_ordenar_431 = datasheet.Cells(15, 4)
+costo_ordenar_141 = datasheet.Cells(16, 4)
+costo_ordenar_241 = datasheet.Cells(17, 4)
+costo_ordenar_341 = datasheet.Cells(18, 4)
+costo_ordenar_441 = datasheet.Cells(19, 4)
+
+
+'Parametro para fabricar
+costo_fabricar_11 = datasheet.Cells(4, 8)
+costo_fabricar_21 = datasheet.Cells(5, 8)
+costo_fabricar_31 = datasheet.Cells(6, 8)
+costo_fabricar_41 = datasheet.Cells(7, 8)
+costo_fabricar_12 = datasheet.Cells(8, 8)
+costo_fabricar_22 = datasheet.Cells(9, 8)
+costo_fabricar_32 = datasheet.Cells(10, 8)
+costo_fabricar_42 = datasheet.Cells(11, 8)
+costo_fabricar_13 = datasheet.Cells(12, 8)
+costo_fabricar_23 = datasheet.Cells(13, 8)
+costo_fabricar_33 = datasheet.Cells(14, 8)
+costo_fabricar_43 = datasheet.Cells(15, 8)
+costo_fabricar_14 = datasheet.Cells(16, 8)
+costo_fabricar_24 = datasheet.Cells(17, 8)
+costo_fabricar_34 = datasheet.Cells(18, 8)
+costo_fabricar_44 = datasheet.Cells(19, 8)
+
+
+'Parametro capacidad productiva
+
+capacidad_productiva_11 = datasheet.Cells(4, 12)
+capacidad_productiva_21 = datasheet.Cells(5, 12)
+capacidad_productiva_31 = datasheet.Cells(6, 12)
+capacidad_productiva_41 = datasheet.Cells(7, 12)
+capacidad_productiva_12 = datasheet.Cells(8, 12)
+capacidad_productiva_22 = datasheet.Cells(9, 12)
+capacidad_productiva_32 = datasheet.Cells(10, 12)
+capacidad_productiva_42 = datasheet.Cells(11, 12)
+capacidad_productiva_13 = datasheet.Cells(12, 12)
+capacidad_productiva_23 = datasheet.Cells(13, 12)
+capacidad_productiva_33 = datasheet.Cells(14, 12)
+capacidad_productiva_43 = datasheet.Cells(15, 12)
+capacidad_productiva_14 = datasheet.Cells(16, 12)
+capacidad_productiva_24 = datasheet.Cells(17, 12)
+capacidad_productiva_34 = datasheet.Cells(18, 12)
+capacidad_productiva_44 = datasheet.Cells(19, 12)
+
+
+
+'Parametro costo de transportar
+
+costo_transportar_FB_111 = datasheet.Cells(4, 17)
+costo_transportar_FB_211 = datasheet.Cells(5, 17)
+costo_transportar_FB_311 = datasheet.Cells(6, 17)
+costo_transportar_FB_411 = datasheet.Cells(7, 17)
+costo_transportar_FB_121 = datasheet.Cells(8, 17)
+costo_transportar_FB_221 = datasheet.Cells(9, 17)
+costo_transportar_FB_321 = datasheet.Cells(10, 17)
+costo_transportar_FB_421 = datasheet.Cells(11, 17)
+costo_transportar_FB_131 = datasheet.Cells(12, 17)
+costo_transportar_FB_231 = datasheet.Cells(13, 17)
+costo_transportar_FB_331 = datasheet.Cells(14, 17)
+costo_transportar_FB_431 = datasheet.Cells(15, 17)
+costo_transportar_FB_141 = datasheet.Cells(16, 17)
+costo_transportar_FB_241 = datasheet.Cells(17, 17)
+costo_transportar_FB_341 = datasheet.Cells(18, 17)
+costo_transportar_FB_441 = datasheet.Cells(19, 17)
+
+
+'Parametro costo de despacho
+
+costo_despacho_BC_111 = datasheet.Cells(4, 22)
+costo_despacho_BC_121 = datasheet.Cells(5, 22)
+costo_despacho_BC_131 = datasheet.Cells(6, 22)
+costo_despacho_BC_141 = datasheet.Cells(7, 22)
+costo_despacho_BC_151 = datasheet.Cells(8, 22)
+costo_despacho_BC_161 = datasheet.Cells(9, 22)
+costo_despacho_BC_171 = datasheet.Cells(10, 22)
+costo_despacho_BC_181 = datasheet.Cells(11, 22)
+
+
+
+'Parametro demanda
+
+Demanda_111 = datasheet.Cells(4, 27)
+Demanda_211 = datasheet.Cells(5, 27)
+Demanda_311 = datasheet.Cells(6, 27)
+Demanda_411 = datasheet.Cells(7, 27)
+Demanda_121 = datasheet.Cells(8, 27)
+Demanda_221 = datasheet.Cells(9, 27)
+Demanda_321 = datasheet.Cells(10, 27)
+Demanda_421 = datasheet.Cells(11, 27)
+Demanda_131 = datasheet.Cells(12, 27)
+Demanda_231 = datasheet.Cells(13, 27)
+Demanda_331 = datasheet.Cells(14, 27)
+Demanda_431 = datasheet.Cells(15, 27)
+Demanda_141 = datasheet.Cells(16, 27)
+Demanda_241 = datasheet.Cells(17, 27)
+Demanda_341 = datasheet.Cells(18, 27)
+Demanda_441 = datasheet.Cells(19, 27)
+Demanda_151 = datasheet.Cells(20, 27)
+Demanda_251 = datasheet.Cells(21, 27)
+Demanda_351 = datasheet.Cells(22, 27)
+Demanda_451 = datasheet.Cells(23, 27)
+Demanda_161 = datasheet.Cells(24, 27)
+Demanda_261 = datasheet.Cells(25, 27)
+Demanda_361 = datasheet.Cells(26, 27)
+Demanda_461 = datasheet.Cells(27, 27)
+Demanda_171 = datasheet.Cells(28, 27)
+Demanda_271 = datasheet.Cells(29, 27)
+Demanda_371 = datasheet.Cells(30, 27)
+Demanda_471 = datasheet.Cells(31, 27)
+Demanda_181 = datasheet.Cells(32, 27)
+Demanda_281 = datasheet.Cells(33, 27)
+Demanda_381 = datasheet.Cells(34, 27)
+Demanda_481 = datasheet.Cells(35, 27)
+
+
+'Parametro costo almacenaje
+
+costo_almacenaje_11 = datasheet.Cells(4, 31)
+costo_almacenaje_21 = datasheet.Cells(5, 31)
+costo_almacenaje_31 = datasheet.Cells(6, 31)
+costo_almacenaje_41 = datasheet.Cells(7, 31)
+
+
+'Parametro inventario inicial
+
+inventario_inicial_11 = datasheet.Cells(4, 35)
+inventario_inicial_21 = datasheet.Cells(5, 35)
+inventario_inicial_31 = datasheet.Cells(6, 35)
+inventario_inicial_41 = datasheet.Cells(7, 35)
+
+
+'Parametro capacidad del camion
+capacidad_camion_1 = datasheet.Cells(4, 38)
+capacidad_camion_2 = datasheet.Cells(5, 38)
+capacidad_camion_3 = datasheet.Cells(6, 38)
+capacidad_camion_4 = datasheet.Cells(7, 38)
+
+
+'Parametro costo fijo camion
+costo_fijo_camion = datasheet.Cells(2, 41)
+
+
+'--------------capturar las variables de control------------------------------------------------------------------
+
+'Variable de control de Up to level
+up_to_level_11 = datasheet1.Cells(4, 4)
+up_to_level_21 = datasheet1.Cells(5, 4)
+up_to_level_31 = datasheet1.Cells(6, 4)
+up_to_level_41 = datasheet1.Cells(7, 4)
+
+
+'Variable de control de reorder point
+reorder_point_11 = datasheet1.Cells(4, 8)
+reorder_point_21 = datasheet1.Cells(5, 8)
+reorder_point_31 = datasheet1.Cells(6, 8)
+reorder_point_41 = datasheet1.Cells(7, 8)
+
+
+'---------------------------------------------------------------------------------------------------------------
+
+'obtenemos la ruta del archivo (del modelo de arenas)
+ruta = ThisWorkbook.Path
+
+'se ejecuta la aplicacion de arena y se abre el modelo
+Set app = CreateObject("Arena.Application")
+Set modelo = app.Models.Open(ruta + "\Model2.0.doe")
+
+
+
+'------------------Modificacion de variables del modelo--------------------------------------------------------
+
+'asignamos a cada modulo del modelo un numero unico que indentificara cada bloque
+'recuperamos este numero del modelo especificando el tag
+ID = modelo.Modules.Find(smFindTag, "capacidad_camion_1")
+
+'obtenemos el parametro de capacidad del recurso
+Set modulo = modelo.Modules(ID)
+
+'modificamos el parametro de capacidad
+modulo.Data("Initial Value") = capacidad_camion_1
+
+
+'------------------Hacemos lo mismo para el resto---------------------------------------------------------------
+'modificamos capacidad_camion_2
+ID = modelo.Modules.Find(smFindTag, "capacidad_camion_2")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = capacidad_camion_2
+
+'modificamos capacidad_camion_3
+ID = modelo.Modules.Find(smFindTag, "capacidad_camion_3")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = capacidad_camion_3
+
+'modificamos capacidad_camion_4
+ID = modelo.Modules.Find(smFindTag, "capacidad_camion_4")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = capacidad_camion_4
+
+'------------------------------modificamos up to level--------------------------------------------------------------------
+
+'modificamos up_to_level_11
+ID = modelo.Modules.Find(smFindTag, "up_to_level_11")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = up_to_level_11
+
+'modificamos up_to_level_21
+ID = modelo.Modules.Find(smFindTag, "up_to_level_21")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = up_to_level_21
+
+'modificamos up_to_level_31
+ID = modelo.Modules.Find(smFindTag, "up_to_level_31")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = up_to_level_31
+
+'modificamos up_to_level_41
+ID = modelo.Modules.Find(smFindTag, "up_to_level_41")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = up_to_level_41
+
+
+'-------------------------------modificamos reorder point----------------------------------------------------------------
+
+
+'modificamos reorder_point_11
+ID = modelo.Modules.Find(smFindTag, "reorder_point_11")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = reorder_point_11
+
+'modificamos reorder_point_21
+ID = modelo.Modules.Find(smFindTag, "reorder_point_21")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = reorder_point_21
+
+'modificamos reorder_point_31
+ID = modelo.Modules.Find(smFindTag, "reorder_point_31")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = reorder_point_31
+
+'modificamos reorder_point_41
+ID = modelo.Modules.Find(smFindTag, "reorder_point_41")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = reorder_point_41
+
+'-------------------------------------modificamos review period---------------------------------------------------------------
+
+'extraer valor
+review_period = 0
+review_period = datasheet1.Cells(9, 3)
+
+'modificamos review period
+ID = modelo.Modules.Find(smFindTag, "Reposicion de inventario")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Interarrival Type") = "Constant"
+modulo.Data("Value") = review_period
+
+
+'-------------------------------------modificamos costo de almacenamiento------------------------------------------------------
+
+'modificamos costo_almacenaje_11
+ID = modelo.Modules.Find(smFindTag, "costo_almacenaje_11")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = costo_almacenaje_11
+
+'modificamos costo_almacenaje_21
+ID = modelo.Modules.Find(smFindTag, "costo_almacenaje_21")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = costo_almacenaje_21
+
+'modificamos costo_almacenaje_31
+ID = modelo.Modules.Find(smFindTag, "costo_almacenaje_31")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = costo_almacenaje_31
+
+'modificamos costo_almacenaje_41
+ID = modelo.Modules.Find(smFindTag, "costo_almacenaje_41")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = costo_almacenaje_41
+
+
+'--------------------------modificar la demanda------------------------------------------------------------------
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(1)") = "Ajuste_tiempo*" + Demanda_111
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(2)") = "Ajuste_tiempo*" + Demanda_121
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(3)") = "Ajuste_tiempo*" + Demanda_131
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(4)") = "Ajuste_tiempo*" + Demanda_141
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(5)") = "Ajuste_tiempo*" + Demanda_151
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(6)") = "Ajuste_tiempo*" + Demanda_161
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(7)") = "Ajuste_tiempo*" + Demanda_171
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(8)") = "Ajuste_tiempo*" + Demanda_181
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(9)") = "Ajuste_tiempo*" + Demanda_211
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(10)") = "Ajuste_tiempo*" + Demanda_221
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(11)") = "Ajuste_tiempo*" + Demanda_231
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(12)") = "Ajuste_tiempo*" + Demanda_241
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(13)") = "Ajuste_tiempo*" + Demanda_251
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(14)") = "Ajuste_tiempo*" + Demanda_261
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(15)") = "Ajuste_tiempo*" + Demanda_271
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(16)") = "Ajuste_tiempo*" + Demanda_281
+
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(17)") = "Ajuste_tiempo*" + Demanda_311
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(18)") = "Ajuste_tiempo*" + Demanda_321
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(19)") = "Ajuste_tiempo*" + Demanda_331
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(20)") = "Ajuste_tiempo*" + Demanda_341
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(21)") = "Ajuste_tiempo*" + Demanda_351
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(22)") = "Ajuste_tiempo*" + Demanda_361
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(23)") = "Ajuste_tiempo*" + Demanda_371
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(24)") = "Ajuste_tiempo*" + Demanda_381
+
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(25)") = "Ajuste_tiempo*" + Demanda_411
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(26)") = "Ajuste_tiempo*" + Demanda_421
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(27)") = "Ajuste_tiempo*" + Demanda_431
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(28)") = "Ajuste_tiempo*" + Demanda_441
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(29)") = "Ajuste_tiempo*" + Demanda_451
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(30)") = "Ajuste_tiempo*" + Demanda_461
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(31)") = "Ajuste_tiempo*" + Demanda_471
+
+'modificamos los parametros para modulo de asignar cantidad de pedido de los clientes
+ID = modelo.Modules.Find(smFindTag, "demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(32)") = "Ajuste_tiempo*" + Demanda_481
+
+
+'------------------------------modificamos niveles de inventario iniciales---------------------------------------------
+
+'modeficamos inventario_inicial_11
+ID = modelo.Modules.Find(smFindTag, "inventario_inicial_11")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = inventario_inicial_11
+
+'modeficamos inventario_inicial_21
+ID = modelo.Modules.Find(smFindTag, "inventario_inicial_21")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = inventario_inicial_21
+
+'modeficamos inventario_inicial_31
+ID = modelo.Modules.Find(smFindTag, "inventario_inicial_31")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = inventario_inicial_31
+
+'modeficamos inventario_inicial_41
+ID = modelo.Modules.Find(smFindTag, "inventario_inicial_41")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Initial Value") = inventario_inicial_41
+
+
+'------------------------------modificamos costo de transporte bodega cliente--------------------------------------------
+
+costo_bc = 0
+costo_bc1 = 0
+costo_bc = "Costo Total+" + Str(costo_fijo_camion) + "+" + costo_despacho_BC_111 + "*(ANINT(Demanda_P1C1/Capacidad camion1)+ANINT(Demanda_P2C1/Capacidad camion2)+ANINT(Demanda_P3C1/Capacidad camion3)+ANINT(Demanda_P4C1/Capacidad camion4))+" + costo_despacho_BC_121 + "*(ANINT(Demanda_P1C2/Capacidad camion1)+ANINT(Demanda_P2C2/Capacidad camion2)+ANINT(Demanda_P3C2/Capacidad camion3)+ANINT(Demanda_P4C2/Capacidad camion4))+" + costo_despacho_BC_131 + "*(ANINT(Demanda_P1C3/Capacidad camion1)+ANINT(Demanda_P2C3/Capacidad camion2)+ANINT(Demanda_P3C3/Capacidad camion3)+ANINT(Demanda_P4C3/Capacidad camion4))+" + costo_despacho_BC_141 + "*(ANINT(Demanda_P1C4/Capacidad camion1)+ANINT(Demanda_P2C4/Capacidad camion2)+ANINT(Demanda_P3C4/Capacidad camion3)+ANINT(Demanda_P4C4/Capacidad camion4))+" + costo_despacho_BC_151 + "*(ANINT(Demanda_P1C5/Capacidad camion1)+ANINT(Demanda_P2C5/Capacidad camion2)+ANINT(Demanda_P3C5/Capacidad camion3)+ANINT(Demanda_P4C5/Capacidad camion4))"
+costo_bc1 = costo_bc + "+" + costo_despacho_BC_161 + "*(ANINT(Demanda_P1C6/Capacidad camion1)+ANINT(Demanda_P2C6/Capacidad camion2)+ANINT(Demanda_P3C6/Capacidad camion3)+ANINT(Demanda_P4C6/Capacidad camion4))+" + costo_despacho_BC_171 + "*(ANINT(Demanda_P1C7/Capacidad camion1)+ANINT(Demanda_P2C7/Capacidad camion2)+ANINT(Demanda_P3C7/Capacidad camion3)+ANINT(Demanda_P4C7/Capacidad camion4))+" + costo_despacho_BC_181 + "*(ANINT(Demanda_P1C8/Capacidad camion1)+ANINT(Demanda_P2C8/Capacidad camion2)+ANINT(Demanda_P3C8/Capacidad camion3)+ANINT(Demanda_P4C8/Capacidad camion4))"
+
+
+ID = modelo.Modules.Find(smFindTag, "costo_BC")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(5)") = costo_bc1
+
+'------------------------------modificaciones costo de ordenar y fabricar------------------------------------------------------------------------------------------
+'Actualizar inventario1
+ID = modelo.Modules.Find(smFindTag, "Actualizar inventario1")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(2)") = "Costo Total+Cantidad_Ordenada_F1P1*" + Str(costo_ordenar_111 + costo_fabricar_11) + "+Cantidad_Ordenada_F2P1*" + Str(costo_ordenar_121 + costo_fabricar_21) + "+Cantidad_Ordenada_F3P1*" + Str(costo_ordenar_131 + costo_fabricar_31) + "+Cantidad_Ordenada_F4P1*" + Str(costo_ordenar_411 + costo_fabricar_41)
+'Costo Total+  Cantidad_Ordenada_F1P1*53+  Cantidad_Ordenada_F2P1*58+  Cantidad_Ordenada_F3P1*55+  Cantidad_Ordenada_F4P1*64
+'costo_transportar_FB_111
+'costo_fabricar_11
+
+
+'Actualizar inventario2
+ID = modelo.Modules.Find(smFindTag, "Actualizar inventario2")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(2)") = "Costo Total+Cantidad_Ordenada_F1P2*" + Str(costo_ordenar_211 + costo_fabricar_12) + "+Cantidad_Ordenada_F2P2*" + Str(costo_ordenar_221 + costo_fabricar_22) + "+Cantidad_Ordenada_F3P2*" + Str(costo_ordenar_231 + costo_fabricar_32) + "+Cantidad_Ordenada_F4P2*" + Str(costo_ordenar_241 + costo_fabricar_42)
+'Costo Total+  Cantidad_Ordenada_F1P2*104+  Cantidad_Ordenada_F2P2*113+  Cantidad_Ordenada_F3P2*144+  Cantidad_Ordenada_F4P2*124
+
+
+'Actualizar inventario3
+ID = modelo.Modules.Find(smFindTag, "Actualizar inventario3")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(2)") = "Costo Total+Cantidad_Ordenada_F1P3*" + Str(costo_ordenar_311 + costo_fabricar_13) + "+Cantidad_Ordenada_F2P3*" + Str(costo_ordenar_321 + costo_fabricar_23) + "+Cantidad_Ordenada_F3P3*" + Str(costo_ordenar_331 + costo_fabricar_33) + "+Cantidad_Ordenada_F4P3*" + Str(costo_ordenar_341 + costo_fabricar_43)
+'Costo Total+  Cantidad_Ordenada_F1P3*310+  Cantidad_Ordenada_F2P3*322+  Cantidad_Ordenada_F3P3*315+  Cantidad_Ordenada_F4P3*331
+
+
+'Actualizar inventario4
+ID = modelo.Modules.Find(smFindTag, "Actualizar inventario4")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(2)") = "Costo Total+Cantidad_Ordenada_F1P4*" + Str(costo_ordenar_411 + costo_fabricar_14) + "+Cantidad_Ordenada_F2P4*" + Str(costo_ordenar_421 + costo_fabricar_24) + "+Cantidad_Ordenada_F3P4*" + Str(costo_ordenar_431 + costo_fabricar_34) + "+Cantidad_Ordenada_F4P4*" + Str(costo_ordenar_441 + costo_fabricar_44)
+'Costo Total+  Cantidad_Ordenada_F1P4*152+  Cantidad_Ordenada_F2P4*142+  Cantidad_Ordenada_F3P4*158+  Cantidad_Ordenada_F4P4*162
+
+
+'----------------------------------costo transporte fabrica bodega-------------------------------------------------------------------
+'Actualizar ordenes en proceso1
+ID = modelo.Modules.Find(smFindTag, "Actualizar ordenes en proceso11")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(2)") = "Costo Total+" + Str(costo_fijo_camion) + "+ANINT(Cantidad_Ordenada_F1P1/Capacidad camion1)*" + costo_transportar_FB_111 + "+ANINT(Cantidad_Ordenada_F2P1/Capacidad camion1)*" + costo_transportar_FB_211 + "+ANINT(Cantidad_Ordenada_F3P1/Capacidad camion1)*" + costo_transportar_FB_311 + "+ANINT(Cantidad_Ordenada_F4P1/Capacidad camion1)*" + costo_transportar_FB_411
+
+
+'Actualizar ordenes en proceso2
+ID = modelo.Modules.Find(smFindTag, "Actualizar ordenes en proceso2")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(2)") = "Costo Total+" + Str(costo_fijo_camion) + "+ANINT(Cantidad_Ordenada_F1P2/Capacidad camion2)*" + costo_transportar_FB_121 + "+ANINT(Cantidad_Ordenada_F2P2/Capacidad camion2)*" + costo_transportar_FB_221 + "+ANINT(Cantidad_Ordenada_F3P2/Capacidad camion2)*" + costo_transportar_FB_321 + "+ANINT(Cantidad_Ordenada_F4P2/Capacidad camion2)*" + costo_transportar_FB_421
+
+
+'Actualizar ordenes en proceso3
+ID = modelo.Modules.Find(smFindTag, "Actualizar ordenes en proceso3")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(2)") = "Costo Total+" + Str(costo_fijo_camion) + "+ANINT(Cantidad_Ordenada_F1P3/Capacidad camion3)*" + costo_transportar_FB_131 + "+ANINT(Cantidad_Ordenada_F2P3/Capacidad camion3)*" + costo_transportar_FB_231 + "+ANINT(Cantidad_Ordenada_F3P3/Capacidad camion3)*" + costo_transportar_FB_331 + "+ANINT(Cantidad_Ordenada_F4P3/Capacidad camion3)*" + costo_transportar_FB_431
+
+
+'Actualizar ordenes en proceso4
+ID = modelo.Modules.Find(smFindTag, "Actualizar ordenes en proceso4")
+Set modulo = modelo.Modules(ID)
+modulo.Data("Value(2)") = "Costo Total+" + Str(costo_fijo_camion) + "+ANINT(Cantidad_Ordenada_F1P4/Capacidad camion4)*" + costo_transportar_FB_141 + "+ANINT(Cantidad_Ordenada_F2P4/Capacidad camion4)*" + costo_transportar_FB_241 + "+ANINT(Cantidad_Ordenada_F3P4/Capacidad camion4)*" + costo_transportar_FB_341 + "+ANINT(Cantidad_Ordenada_F4P4/Capacidad camion4)*" + costo_transportar_FB_441
+
+
+'----------------------------------seguimiento de orden-----------------------------------------------------------------------------
+
+'extraccion de datos producto 1
+primer_lugar_p1 = datasheet3.Cells(4, 14)
+segundo_lugar_p1 = datasheet3.Cells(4, 15)
+tercer_lugar_p1 = datasheet3.Cells(4, 16)
+cuarto_lugar_p1 = datasheet3.Cells(4, 17)
+
+'---------------------------------asignar ordenes en proceso1------------------------------------------------------------------------
+
+'asignar primer lugar
+If primer_lugar_p1 = "F1" Then
+    capacidad_anterior1 = capacidad_productiva_11
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F1P1"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_11) + ",Cantidad ordenada1)"
+
+ElseIf primer_lugar_p1 = "F2" Then
+    capacidad_anterior1 = capacidad_productiva_21
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F2P1"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_21) + ",Cantidad ordenada1)"
+
+ElseIf primer_lugar_p1 = "F3" Then
+    capacidad_anterior1 = capacidad_productiva_31
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F3P1"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_31) + ",Cantidad ordenada1)"
+
+ElseIf primer_lugar_p1 = "F4" Then
+    capacidad_anterior1 = capacidad_productiva_41
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F4P1"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_41) + ",Cantidad ordenada1)"
+End If
+
+
+'asignar segundo lugar
+If segundo_lugar_p1 = "F1" Then
+    capacidad_anterior2 = capacidad_productiva_11
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F1P1"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_11) + ",(MX(0,Cantidad ordenada1-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p1 = "F2" Then
+    capacidad_anterior2 = capacidad_productiva_21
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F2P1"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_21) + ",(MX(0,Cantidad ordenada1-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p1 = "F3" Then
+    capacidad_anterior2 = capacidad_productiva_31
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F3P1"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_31) + ",(MX(0,Cantidad ordenada1-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p1 = "F4" Then
+    capacidad_anterior2 = capacidad_productiva_41
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F4P1"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_41) + ",(MX(0,Cantidad ordenada1-" + Str(capacidad_anterior1) + ")))"
+End If
+
+
+'asignar tercer lugar
+If tercer_lugar_p1 = "F1" Then
+    capacidad_anterior3 = capacidad_productiva_11
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F1P1"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_11) + ",(MX(0,Cantidad ordenada1-" + Str(capacidad_anterior) + ")))"
+
+    
+ElseIf tercer_lugar_p1 = "F2" Then
+    capacidad_anterior3 = capacidad_productiva_21
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F2P1"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_21) + ",(MX(0,Cantidad ordenada1-" + Str(capacidad_anterior) + ")))"
+
+ElseIf tercer_lugar_p1 = "F3" Then
+    capacidad_anterior3 = capacidad_productiva_31
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F3P1"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_31) + ",(MX(0,Cantidad ordenada1-" + Str(capacidad_anterior) + ")))"
+
+ElseIf tercer_lugar_p1 = "F4" Then
+    capacidad_anterior3 = capacidad_productiva_41
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F4P1"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_41) + ",(MX(0,Cantidad ordenada1-" + Str(capacidad_anterior) + ")))"
+End If
+
+
+
+'asignar cuarto lugar
+If cuarto_lugar_p1 = "F1" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F1P1"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada1-" + Str(capacidad_anterior) + ")"
+
+    
+ElseIf cuarto_lugar_p1 = "F2" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F2P1"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada1-" + Str(capacidad_anterior) + ")"
+
+
+ElseIf cuarto_lugar_p1 = "F3" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F3P1"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada1-" + Str(capacidad_anterior) + ")"
+
+
+ElseIf cuarto_lugar_p1 = "F4" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso1")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F4P1"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada1-" + Str(capacidad_anterior) + ")"
+End If
+
+
+'--------------------------------------------asignar para producto2----------------------------------------------
+
+'extraccion de datos producto 2
+primer_lugar_p2 = datasheet3.Cells(5, 14)
+segundo_lugar_p2 = datasheet3.Cells(5, 15)
+tercer_lugar_p2 = datasheet3.Cells(5, 16)
+cuarto_lugar_p2 = datasheet3.Cells(5, 17)
+
+'---------------------------------asignar ordenes en proceso2------------------------------------------------------------------------
+
+'asignar primer lugar
+If primer_lugar_p2 = "F1" Then
+    capacidad_anterior1 = capacidad_productiva_12
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F1P2"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_12) + ",Cantidad ordenada2)"
+
+ElseIf primer_lugar_p2 = "F2" Then
+    capacidad_anterior1 = capacidad_productiva_22
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F2P2"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_22) + ",Cantidad ordenada2)"
+
+ElseIf primer_lugar_p2 = "F3" Then
+    capacidad_anterior1 = capacidad_productiva_32
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F3P2"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_32) + ",Cantidad ordenada2)"
+
+ElseIf primer_lugar_p2 = "F4" Then
+    capacidad_anterior1 = capacidad_productiva_42
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F4P2"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_42) + ",Cantidad ordenada2)"
+End If
+
+
+'asignar segundo lugar
+If segundo_lugar_p2 = "F1" Then
+    capacidad_anterior2 = capacidad_productiva_12
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F1P2"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_12) + ",(MX(0,Cantidad ordenada2-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p2 = "F2" Then
+    capacidad_anterior2 = capacidad_productiva_22
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F2P2"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_22) + ",(MX(0,Cantidad ordenada2-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p2 = "F3" Then
+    capacidad_anterior2 = capacidad_productiva_32
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F3P2"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_32) + ",(MX(0,Cantidad ordenada2-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p2 = "F4" Then
+    capacidad_anterior2 = capacidad_productiva_42
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F4P2"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_42) + ",(MX(0,Cantidad ordenada2-" + Str(capacidad_anterior1) + ")))"
+End If
+
+
+'asignar tercer lugar
+If tercer_lugar_p2 = "F1" Then
+    capacidad_anterior3 = capacidad_productiva_12
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F1P2"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_12) + ",(MX(0,Cantidad ordenada2-" + Str(capacidad_anterior) + ")))"
+
+    
+ElseIf tercer_lugar_p2 = "F2" Then
+    capacidad_anterior3 = capacidad_productiva_22
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F2P2"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_22) + ",(MX(0,Cantidad ordenada2-" + Str(capacidad_anterior) + ")))"
+
+ElseIf tercer_lugar_p2 = "F3" Then
+    capacidad_anterior3 = capacidad_productiva_32
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F3P2"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_32) + ",(MX(0,Cantidad ordenada2-" + Str(capacidad_anterior) + ")))"
+
+ElseIf tercer_lugar_p2 = "F4" Then
+    capacidad_anterior3 = capacidad_productiva_42
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F4P2"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_42) + ",(MX(0,Cantidad ordenada2-" + Str(capacidad_anterior) + ")))"
+End If
+
+
+
+'asignar cuarto lugar
+If cuarto_lugar_p2 = "F1" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F1P2"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada2-" + Str(capacidad_anterior) + ")"
+
+    
+ElseIf cuarto_lugar_p2 = "F2" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F2P2"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada2-" + Str(capacidad_anterior) + ")"
+
+
+ElseIf cuarto_lugar_p2 = "F3" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F3P2"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada2-" + Str(capacidad_anterior) + ")"
+
+
+ElseIf cuarto_lugar_p2 = "F4" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso2")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F4P2"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada2-" + Str(capacidad_anterior) + ")"
+End If
+
+
+
+'--------------------------------------------asignar para producto3----------------------------------------------
+
+'extraccion de datos producto 3
+primer_lugar_p3 = datasheet3.Cells(6, 14)
+segundo_lugar_p3 = datasheet3.Cells(6, 15)
+tercer_lugar_p3 = datasheet3.Cells(6, 16)
+cuarto_lugar_p3 = datasheet3.Cells(6, 17)
+
+'---------------------------------asignar ordenes en proceso3------------------------------------------------------------------------
+
+'asignar primer lugar
+If primer_lugar_p3 = "F1" Then
+    capacidad_anterior1 = capacidad_productiva_13
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F1P3"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_13) + ",Cantidad ordenada3)"
+
+ElseIf primer_lugar_p3 = "F2" Then
+    capacidad_anterior1 = capacidad_productiva_23
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F2P3"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_23) + ",Cantidad ordenada3)"
+
+ElseIf primer_lugar_p3 = "F3" Then
+    capacidad_anterior1 = capacidad_productiva_33
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F3P3"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_33) + ",Cantidad ordenada3)"
+
+ElseIf primer_lugar_p3 = "F4" Then
+    capacidad_anterior1 = capacidad_productiva_43
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F4P3"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_43) + ",Cantidad ordenada3)"
+End If
+
+
+'asignar segundo lugar
+If segundo_lugar_p3 = "F1" Then
+    capacidad_anterior2 = capacidad_productiva_13
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F1P3"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_13) + ",(MX(0,Cantidad ordenada3-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p3 = "F2" Then
+    capacidad_anterior2 = capacidad_productiva_23
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F2P3"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_23) + ",(MX(0,Cantidad ordenada3-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p3 = "F3" Then
+    capacidad_anterior2 = capacidad_productiva_33
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F3P3"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_33) + ",(MX(0,Cantidad ordenada3-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p3 = "F4" Then
+    capacidad_anterior2 = capacidad_productiva_43
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F4P3"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_43) + ",(MX(0,Cantidad ordenada3-" + Str(capacidad_anterior1) + ")))"
+End If
+
+
+'asignar tercer lugar
+If tercer_lugar_p3 = "F1" Then
+    capacidad_anterior3 = capacidad_productiva_13
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F1P3"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_13) + ",(MX(0,Cantidad ordenada3-" + Str(capacidad_anterior) + ")))"
+
+    
+ElseIf tercer_lugar_p3 = "F2" Then
+    capacidad_anterior3 = capacidad_productiva_23
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F2P3"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_23) + ",(MX(0,Cantidad ordenada3-" + Str(capacidad_anterior) + ")))"
+
+ElseIf tercer_lugar_p3 = "F3" Then
+    capacidad_anterior3 = capacidad_productiva_33
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F3P3"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_33) + ",(MX(0,Cantidad ordenada3-" + Str(capacidad_anterior) + ")))"
+
+ElseIf tercer_lugar_p3 = "F4" Then
+    capacidad_anterior3 = capacidad_productiva_43
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F4P3"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_43) + ",(MX(0,Cantidad ordenada3-" + Str(capacidad_anterior) + ")))"
+End If
+
+
+
+'asignar cuarto lugar
+If cuarto_lugar_p3 = "F1" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F1P3"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada3-" + Str(capacidad_anterior) + ")"
+
+    
+ElseIf cuarto_lugar_p3 = "F2" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F2P3"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada3-" + Str(capacidad_anterior) + ")"
+
+
+ElseIf cuarto_lugar_p3 = "F3" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F3P3"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada3-" + Str(capacidad_anterior) + ")"
+
+
+ElseIf cuarto_lugar_p3 = "F4" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso3")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F4P3"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada3-" + Str(capacidad_anterior) + ")"
+End If
+
+
+'--------------------------------------------asignar para producto4----------------------------------------------
+
+'extraccion de datos producto 4
+primer_lugar_p4 = datasheet3.Cells(7, 14)
+segundo_lugar_p4 = datasheet3.Cells(7, 15)
+tercer_lugar_p4 = datasheet3.Cells(7, 16)
+cuarto_lugar_p4 = datasheet3.Cells(7, 17)
+
+'---------------------------------asignar ordenes en proceso4------------------------------------------------------------------------
+
+'asignar primer lugar
+If primer_lugar_p4 = "F1" Then
+    capacidad_anterior1 = capacidad_productiva_14
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F1P4"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_14) + ",Cantidad ordenada4)"
+
+ElseIf primer_lugar_p4 = "F2" Then
+    capacidad_anterior1 = capacidad_productiva_24
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F2P4"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_24) + ",Cantidad ordenada4)"
+
+ElseIf primer_lugar_p4 = "F3" Then
+    capacidad_anterior1 = capacidad_productiva_34
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F3P4"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_34) + ",Cantidad ordenada4)"
+
+ElseIf primer_lugar_p4 = "F4" Then
+    capacidad_anterior1 = capacidad_productiva_44
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(2)") = "Cantidad_Ordenada_F4P4"
+    modulo.Data("Value(2)") = "MN(" + Str(capacidad_productiva_44) + ",Cantidad ordenada4)"
+End If
+
+
+'asignar segundo lugar
+If segundo_lugar_p4 = "F1" Then
+    capacidad_anterior2 = capacidad_productiva_14
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F1P4"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_14) + ",(MX(0,Cantidad ordenada4-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p4 = "F2" Then
+    capacidad_anterior2 = capacidad_productiva_24
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F2P4"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_24) + ",(MX(0,Cantidad ordenada4-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p4 = "F3" Then
+    capacidad_anterior2 = capacidad_productiva_34
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F3P4"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_34) + ",(MX(0,Cantidad ordenada4-" + Str(capacidad_anterior1) + ")))"
+
+ElseIf segundo_lugar_p4 = "F4" Then
+    capacidad_anterior2 = capacidad_productiva_44
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(3)") = "Cantidad_Ordenada_F4P4"
+    modulo.Data("Value(3)") = "MN(" + Str(capacidad_productiva_44) + ",(MX(0,Cantidad ordenada4-" + Str(capacidad_anterior1) + ")))"
+End If
+
+
+'asignar tercer lugar
+If tercer_lugar_p4 = "F1" Then
+    capacidad_anterior3 = capacidad_productiva_14
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F1P4"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_14) + ",(MX(0,Cantidad ordenada4-" + Str(capacidad_anterior) + ")))"
+
+    
+ElseIf tercer_lugar_p4 = "F2" Then
+    capacidad_anterior3 = capacidad_productiva_24
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F2P4"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_24) + ",(MX(0,Cantidad ordenada4-" + Str(capacidad_anterior) + ")))"
+
+ElseIf tercer_lugar_p4 = "F3" Then
+    capacidad_anterior3 = capacidad_productiva_34
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F3P4"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_34) + ",(MX(0,Cantidad ordenada4-" + Str(capacidad_anterior) + ")))"
+
+ElseIf tercer_lugar_p4 = "F4" Then
+    capacidad_anterior3 = capacidad_productiva_44
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(4)") = "Cantidad_Ordenada_F4P4"
+    modulo.Data("Value(4)") = "MN(" + Str(capacidad_productiva_44) + ",(MX(0,Cantidad ordenada4-" + Str(capacidad_anterior) + ")))"
+End If
+
+
+
+'asignar cuarto lugar
+If cuarto_lugar_p4 = "F1" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F1P4"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada4-" + Str(capacidad_anterior) + ")"
+
+    
+ElseIf cuarto_lugar_p4 = "F2" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F2P4"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada4-" + Str(capacidad_anterior) + ")"
+
+
+ElseIf cuarto_lugar_p4 = "F3" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F3P4"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada4-" + Str(capacidad_anterior) + ")"
+
+
+ElseIf cuarto_lugar_p4 = "F4" Then
+    capacidad_anterior = capacidad_anterior1 + capacidad_anterior2 + capacidad_anterior3
+    ID = modelo.Modules.Find(smFindTag, "asignar ordenes en proceso4")
+    Set modulo = modelo.Modules(ID)
+    modulo.Data("VName(5)") = "Cantidad_Ordenada_F4P4"
+    modulo.Data("Value(5)") = "MX(0,Cantidad ordenada4-" + Str(capacidad_anterior) + ")"
+End If
+
+'----------------------------------modificacion crecimiento anual--------------------------------------------------------------------
+
+' extraer variables
+crecimiento_anual = 0
+crecimiento_anual = datasheet.Cells(4, 41)
+
+
+' asignar Crecimiento de demanda
+ID = modelo.Modules.Find(smFindTag, "Crecimiento de demanda")
+Set modulo = modelo.Modules(ID)
+modulo.Data("VName(1)") = "Ajuste_tiempo"
+modulo.Data("Value(1)") = "Ajuste_tiempo*(1+" + crecimiento_anual + ")"
+
+
+
+
+'----------------------------------modificar el set up--------------------------------------------------------------------------------
+
+'parametros de set up
+largo_replicas = 0
+numero_replicas = 0
+Velocidad_simulacion = 0
+fast_forward = 0
+
+'extracccion de parammetros
+largo_replicas = datasheet2.Cells(2, 3)
+numero_replicas = datasheet2.Cells(3, 3)
+Velocidad_simulacion = datasheet2.Cells(4, 3)
+fast_forward = datasheet2.Cells(5, 3)
+warm_up_period = datasheet2.Cells(6, 3)
+
+'con las siguientes lineas se especifican el set up
+'modelo.BaseTimeUnits = smMinutes   'Se debe modificar desde aqui
+modelo.NumberOfReplications = numero_replicas
+modelo.ReplicationLength = largo_replicas
+modelo.WarmUpPeriod = warm_up_period
+'modelo.ReplicationLengthTimeUnits = smHours   'Se debe modificar desde aqui
+modelo.RunSpeed = Velocidad_simulacion
+
+
+
+'-----------------------------------------------------------------------------------------------------------------
+
+'evitamos que aparezca el mensaje de ver el reporte
+modelo.DisplayDefaultReport = smNeverDisplay
+
+
+'iniciamos la ejecucion del modelo
+If fast_forward = "SI" Then
+    modelo.FastForward
+Else
+    modelo.Go smGoWait
+End If
+
+
+'modelo.Go smGoWait
+
+'ejecucion acelerada
+'modelo.FastForward
+
+'finalizamos la simulacion
+modelo.End
+
+'guardamos y cerramos el modelo
+modelo.Save
+modelo.Close
+
+
+End Sub
+
+Sub access_database()
+
+On Error GoTo SubError
+    Dim DbLoc As Variant
+    Dim db As DAO.Database
+    Dim rs As DAO.Recordset
+    'Dim rs1 As DAO.Recordset
+    Dim xlBook As Workbook
+    Dim xlSheet As Worksheet
+    Dim recCount As Long
+    Dim recCount1 As Long
+    Dim SQL As String
+    
+    DbLoc = ThisWorkbook.Path & "\Model2.0.accdb"
+               
+    Debug.Print DbLock
+    'Setup references to workbook and sheet
+    Set xlBook = ActiveWorkbook
+    Set xlSheet = xlBook.Worksheets("Resultados de la simulacion")
+ 
+    xlSheet.Range("A5:M1500").ClearContents
+    
+    'Communicate with the user
+    Application.StatusBar = "Connecting to an external database..."
+    Application.Cursor = xlWait
+ 
+    Set db = OpenDatabase(DbLoc)
+    SQL = "select SourceCategory.Name, SourceProcess.Name, Rep, AvgObs, LastValue, MinObs, MaxObs from StatsAndOutputQry where SourceCategory.Name in ('User Specified')"
+    'SQL1 = "select SourceProcess.Name, Rep, MinObs from StatsAndOutputQry where SourceDataType.Name in ('Expression')"
+    
+'    SQL = "select value as valor, AvgObs as promedio, MaxObs as maximo, MinObs as minimo, SourceProcess.Name as objeto, SourceDataType.Name as propiedad from StatsAndOutputQry"
+'    SQL = "SELECT SalesQuarter & '-' & SalesYear, Division, GrossSales, GrossMargin "
+'    SQL = SQL & "FROM QuarterlySales "
+'    SQL = SQL & "WHERE SalesQuarter IN (1, 2) "
+'    SQL = SQL & "ORDER BY SalesYear, SalesQuarter "
+
+    'Execute our query and populate the recordset
+    Set rs = db.OpenRecordset(SQL, dbOpenSnapshot)
+    'Set rs1 = db.OpenRecordset(SQL1, dbOpenSnapshot)
+    'Set rs = db.OpenRecordset("qryQtrSales", dbOpenSnapshot)
+    'Set rs = db.OpenRecordset("Parts", dbOpenSnapshot)
+ 
+    'Copy recordset to spreadsheet
+    Application.StatusBar = "Writing to spreadsheet..."
+    If rs.RecordCount = 0 Then
+        MsgBox "No data retrieved from database", vbInformation + vbOKOnly, "No Data"
+        GoTo SubExit
+    Else
+        rs.MoveLast
+        recCount = rs.RecordCount
+        rs.MoveFirst
+    End If
+    
+    'If rs1.RecordCount = 0 Then
+    '    MsgBox "No data retrieved from database", vbInformation + vbOKOnly, "No Data"
+    '    GoTo SubExit
+    'Else
+    '    rs1.MoveLast
+    '    recCount1 = rs1.RecordCount
+    '    rs1.MoveFirst
+    'End If
+   
+    xlSheet.Range("C5").CopyFromRecordset rs
+    'xlSheet.Range("I5").CopyFromRecordset rs1
+ 
+'    xlSheet.Range("C" & recCount + 4 & ":F" & recCount + 4).Borders(xlEdgeBottom).LineStyle = XlLineStyle.xlDouble
+'    xlSheet.Range("E" & recCount + 5).Formula = "=SUM(E5:E" & recCount + 4 & ")"
+'    xlSheet.Range("F" & recCount + 5).Formula = "=SUM(F5:F" & recCount + 4 & ")"
+ 
+    Application.StatusBar = "Update complete"
+ 
+
+
+SubExit:
+On Error Resume Next
+    Application.Cursor = xlDefault
+    rs.Close
+    Set rs = Nothing
+    Set xlSheet = Nothing
+    Set xlBook = Nothing
+    Exit Sub
+ 
+SubError:
+    Application.StatusBar = ""
+    MsgBox "RefreshData - UpdateData VBA error: " & vbCrLf & Err.Number & " = " & Err.Description
+    Resume SubExit
+
+End Sub
