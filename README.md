@@ -1,3 +1,4 @@
 # University-Projects
 
-## The idea in this repository is to share university works that i made. However, in many of them, i had to work with my classmates, so, to not take all the responsability of the job, i will only share the part of what i did.
+El objetivo que pretendo conseguir con este repositorio es almacenar y compartir, parcialmente, algunos de los trabajos que realice cuando estuve en la universidad. 
+De esta manera, estas carpetas solo contienen mi parte del trabajo, para asi evitar adjudicarme esfuerzos de otros. Asi, tampoco subire enunciados u otro tipo de documento en el que pueda aparecer la universidad como autor.
